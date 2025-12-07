@@ -420,7 +420,7 @@ export default function GDDPage() {
           <Box sx={{ display: 'flex', gap: '20px', mb: '15px' }}>
             {[Devr2, Devr3].map((src, i) => <Img key={i} src={src} alt={`Roadmap ${i + 2}`} w="48%" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)', boxShadow: '0 6px 16px rgba(0,0,0,0.8)' }} />)}
           </Box>
-          <Txt j sx={{ mt: '10px' }}>(Please check on Github link <Typography component="span" sx={{ fontStyle: 'italic', textDecoration: 'underline' }}>here</Typography>)</Txt>
+          <Txt j sx={{ mt: '10px' }}>(Please check on Github link <Typography component="a" href="https://github.com/users/thavonptml91-dev/projects/1" target="_blank" rel="noopener noreferrer" sx={{ fontStyle: 'italic', textDecoration: 'underline', color: 'inherit', cursor: 'pointer', '&:hover': { color: '#c9a961' } }}>here</Typography>)</Txt>
         </Box>
       </Page>
     </Box>
