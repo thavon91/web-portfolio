@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700;800;900&display=swap');
+
+body {
+  margin: 0;
+}
+
+.menu {
+  color: white;
+  font-family: 'EB Garamond';
+  padding: 70px 70px 30px;
+  /* top padding accounts for fixed header */
+}
+
+/* Vintage game design theme */
+:root {
+  --bg-0: #2a2420;
+  /* vintage brown */
+  --bg-1: #3a3530;
+  /* darker vintage brown */
+  --glass: rgba(139, 119, 101, .15);
+  --glass-strong: rgba(139, 119, 101, .25);
+  --text: #d4c5b9;
+  /* vintage cream */
+  --muted: #8b7765;
+  /* muted brown */
+  --accent: #c9a961;
+  /* vintage gold */
+  --accent-2: #9d8b77;
+  /* vintage taupe */
+  --warning: #c47a2c;
+  /* vintage rust */
+}
+
+html,
+body {
+  background-color: var(--bg-0);
+  background-image: none !important;
+}
+
+body {
+  color: var(--text);
+}
+
+/* Prevent header from shifting when pages change height */
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+/* Ensure no ancestor applies gradient rows */
+#root,
+.menu {
+  background-color: var(--bg-0);
+  background-image: none !important;
+}
+
+/* Page switch animation */
+.page-switch {
+  animation: fadeSlide .35s ease both;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, .4));
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-switch {
+    animation: none;
+  }
+}
+
+/* Scroll reveal effect */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity .55s ease, transform .55s ease;
+}
+
+.reveal-on-scroll.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+.topbar {
+  position: fixed;
+  /* stays at top even when scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  /* stretch to the right edge */
+  height: 45px;
+  width: 100%;
+  /* full width */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* center the whole group */
+  z-index: 1100;
+  /* above other fixed elements */
+  background: linear-gradient(180deg, #5a4a3a, #4a3a2a);
+  border-bottom: 1px solid rgba(157, 139, 119, .2);
+  backdrop-filter: blur(8px) saturate(1.05);
+}
+
+.nav-button {
+  box-sizing: border-box;
+  padding: 10px 30px;
+  margin: 4px;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 600;
+  /* same in all states */
+  border-radius: 6px;
+  border: 2px solid rgba(157, 139, 119, .4);
+  /* subtle vintage ring */
+  background: linear-gradient(180deg, rgba(157, 139, 119, .18), rgba(157, 139, 119, .08));
+  color: var(--text);
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(157, 139, 119, .12);
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.nav-button:hover {
+  background: linear-gradient(180deg, rgba(157, 139, 119, .28), rgba(157, 139, 119, .14));
+  box-shadow: 0 10px 26px rgba(157, 139, 119, .2);
+  transform: translateY(-1px);
+}
+
+.nav-button.active {
+  background: linear-gradient(180deg, #b8956a, #9d7e54);
+  color: #2a2420;
+  border-color: rgba(184, 149, 106, .8);
+  box-shadow: 0 12px 28px rgba(184, 149, 106, .35), inset 0 1px 0 rgba(255, 255, 255, .1);
+  text-shadow: none;
+}
+
+.nav-button:focus-visible {
+  outline: none;
+  border-color: rgba(184, 149, 106, .6);
+  box-shadow: 0 0 0 3px rgba(184, 149, 106, .15);
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 900px) {
+  .menu {
+    padding: 70px 24px 30px;
+  }
+
+  .video-demo iframe {
+    width: 100%;
+  }
+}
+
+/* --- Sticky footer variables --- */
+:root {
+  --footer-h: 58px;
+  /* footer height */
+}
+
+/* Ensure page content never sits under the sticky footer */
+.menu {
+  padding-bottom: calc(var(--footer-h) + 16px);
+  /* room for footer */
+}
+
+/* Sticky footer */
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 8px 20px;
+  background: linear-gradient(180deg, rgba(90, 74, 58, 0.98), rgba(70, 54, 38, 0.98));
+  color: #d4c5b9;
+  border-top: 1px solid rgba(184, 149, 106, .2);
+  box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.55);
+  backdrop-filter: saturate(1.2) blur(4px);
+  z-index: 1000;
+}
+
+.footer-left {
+  position: absolute;
+  left: 20px;
+  font-weight: 600;
+}
+
+.footer-right {
+  position: absolute;
+  right: 20px;
+}
+
+.footer-role {
+  color: #c9a961;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+.footer-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-center a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform .2s ease, color .2s ease;
+}
+
+.footer-center a:hover {
+  color: #facc15;
+  transform: scale(1.15);
+}
+
+/* Top button */
+.back-to-top {
+  background: linear-gradient(180deg, #c9a961, #a68860);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+  box-shadow: 0 4px 12px rgba(201, 169, 97, .25);
+  font-weight: 600;
+}
+
+.back-to-top:hover {
+  background: linear-gradient(180deg, #d4b370, #b39370);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(201, 169, 97, .35);
+}
+
+/* Mobile tweaks + iOS safe area */
+@media (max-width: 560px) {
+  :root {
+    --footer-h: 64px;
+  }
+
+  .footer {
+    padding: 8px 12px calc(8px + env(safe-area-inset-bottom));
+  }
+
+  .footer-center {
+    font-size: 20px;
+    gap: 12px;
+  }
+
+  .footer-left {
+    font-size: 14px;
+  }
+}
