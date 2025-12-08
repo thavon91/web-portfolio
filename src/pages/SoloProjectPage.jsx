@@ -111,7 +111,7 @@ export default function SoloProjectPage() {
   return (
     <Box className="page-switch" sx={{ maxWidth: 900, margin: '8px auto', p: '30px', background: 'linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04))', borderRadius: '10px', border: '1px solid rgba(255,255,255,.08)', boxShadow: '0 18px 40px rgba(0,0,0,.35)' }}>
       <Box className="reveal-on-scroll" sx={{ ...sectionBox, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 2 }}>This is TEST1 Page</Typography>
+        <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 2 }}>TPS Multiplayer Game</Typography>
         <Typography sx={{ textAlign: 'center', textIndent: '50px', lineHeight: 1.5, mb: 3 }}>
           PC game development: multiplayer shooter in the powerful Unreal Engine 5 using C++. This project is my aspiring shooting game, which I am passionate about creating and joining game sessions using C++ programming and connecting many players across the internet. I am eager to bring my game ideas to life and dive into the gaming studio.
         </Typography>
@@ -128,7 +128,7 @@ export default function SoloProjectPage() {
         <Box>
           <Typography variant="h6" sx={{ m: 0, mb: 1.5, fontSize: 24, fontWeight: 800, color: 'var(--accent-2)' }}>Goal:</Typography>
           <Box component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95 }}>
-            <li>Build an FPS game with optimized multipliers for PC platforms. Creating and managing blueprints for game logic, programming C++ for core mechanics, designing animated characters and environments, and prepare game publication on Steam.</li>
+            <li>Build Third-Person Shooter with optimized multipliers for PC platforms. Creating and managing blueprints for game logic, programming C++ for core mechanics, designing animated characters and environments, and prepare game publication on Steam.</li>
           </Box>
         </Box>
         <Box>
