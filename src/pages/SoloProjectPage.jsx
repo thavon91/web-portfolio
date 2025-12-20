@@ -15,7 +15,7 @@ import timel4 from '../assets/gallery/timeline/timel4.png';
 import timel5 from '../assets/gallery/timeline/timel5.png';
 import timel6 from '../assets/gallery/timeline/timel6.png';
 import timel7 from '../assets/gallery/timeline/timel7.png';
-import projectVideo from '../assets/videos/Motion_Graphics_Motion_Graphic.mp4';
+import demo1 from '../assets/gallery/demo/demo1.png';
 
 const itemData = [
   { img: pic1, rows: 2, cols: 2 }, { img: pic2 }, { img: pic3 }, { img: pic4, cols: 2 },
@@ -35,12 +35,29 @@ const sectionBox = {
 };
 
 const navButtonStyle = (position) => ({
-  position: 'absolute', [position]: 20, width: 50, height: 50,
-  display: 'flex', alignItems: 'center', justifyContent: 'center',
-  color: 'white', bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: '50%',
-  cursor: 'pointer', fontSize: '32px', fontWeight: 'bold', zIndex: 10,
-  transition: 'all 0.2s',
-  '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.7)', transform: 'scale(1.1)' }
+  position: 'absolute',
+  [position]: 8,
+  top: '50%',
+  transform: 'translateY(-50%)',
+  width: 32,
+  height: 32,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: 'white',
+  bgcolor: 'rgba(40, 40, 40, 0.6)',
+  border: '1px solid rgba(255, 255, 255, 0.15)',
+  borderRadius: '4px',
+  cursor: 'pointer',
+  fontSize: '16px',
+  fontWeight: 'bold',
+  zIndex: 10,
+  transition: 'all 0.3s ease',
+  '&:hover': {
+    bgcolor: 'rgba(60, 60, 60, 0.85)',
+    transform: 'translateY(-50%) scale(1.1)',
+    borderColor: 'rgba(255, 255, 255, 0.3)'
+  }
 });
 
 const learning = [
@@ -107,20 +124,21 @@ export default function SoloProjectPage() {
     setCurrentIndex(prevIndex);
     setSelectedImage(currentGallery[prevIndex].img);
   };
+  const closeModal = () => {
+    setOpenModal(false);
+    setSelectedImage(null);
+  };
 
   return (
-    <Box className="page-switch" sx={{ maxWidth: 900, margin: '8px auto', p: '30px', background: 'linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.04))', borderRadius: '10px', border: '1px solid rgba(255,255,255,.08)', boxShadow: '0 18px 40px rgba(0,0,0,.35)' }}>
+    <Box className="page-switch" sx={{ maxWidth: 900, margin: '8px auto 0', p: '30px' }}>
       <Box className="reveal-on-scroll" sx={{ ...sectionBox, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 2 }}>TPS Multiplayer Game</Typography>
         <Typography sx={{ textAlign: 'center', textIndent: '50px', lineHeight: 1.5, mb: 3 }}>
           PC game development: multiplayer shooter in the powerful Unreal Engine 5 using C++. This project is my aspiring shooting game, which I am passionate about creating and joining game sessions using C++ programming and connecting many players across the internet. I am eager to bring my game ideas to life and dive into the gaming studio.
         </Typography>
-        <Box component="video" controls autoPlay loop muted width="100%" sx={{ aspectRatio: '16 / 9', borderRadius: '8px', backgroundColor: '#000' }}>
-          <source src={projectVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </Box>
-        <Button href="https://drive.google.com/your-google-drive-link-here" target="_blank" rel="noopener noreferrer" sx={{ mt: 2, px: 2.5, py: 1.25, background: 'linear-gradient(135deg, #c9a961, #a68860)', color: 'white', fontWeight: 'bold', borderRadius: '8px', textTransform: 'none', boxShadow: '0 6px 16px rgba(201, 169, 97, .25)', '&:hover': { background: 'linear-gradient(135deg, #d4b370, #b39370)', transform: 'translateY(-2px)' } }}>
-          📂 Open Google Drive
+        <Box component="img" src={demo1} alt="TPS Multiplayer Game" width="100%" sx={{ aspectRatio: '16 / 9', borderRadius: '8px', objectFit: 'cover' }} />
+        <Button disabled sx={{ mt: 2, px: 2.5, py: 1.25, background: 'linear-gradient(135deg, #c9a961, #a68860)', color: 'white', fontWeight: 'bold', borderRadius: '8px', textTransform: 'none', boxShadow: '0 6px 16px rgba(201, 169, 97, .25)', '&:hover': { background: 'linear-gradient(135deg, #d4b370, #b39370)', transform: 'translateY(-2px)' } }}>
+          📂 Coming soon
         </Button>
       </Box>
 
@@ -136,7 +154,7 @@ export default function SoloProjectPage() {
           <Box component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95 }}>
             <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Engine:</Box> Unreal Engine 5</li>
             <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Language:</Box> C++ and Blueprints</li>
-            <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Duration:</Box> 65 hours of learning, build in 5 months</li>
+            <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Duration:</Box> Building in progress, estimated time 5 months</li>
             <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Team Size:</Box> Solo project</li>
           </Box>
         </Box>
@@ -172,9 +190,9 @@ export default function SoloProjectPage() {
       </Box>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography variant="h5" sx={{ m: 0, mb: 1.5, fontSize: 28, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Assets Used:</Typography>
+        <Typography variant="h5" sx={{ m: 0, mb: 1.5, fontSize: 28, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Assets Used: Free from Epic Games</Typography>
         <Box component="ul" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'disc' }}>
-          {['Avatar character (Art)', 'Farm field with house, and shop (Art)', 'Good Sky (Art)'].map((item, i) => <li key={i}>{item}</li>)}
+          {['Unreal Learning Kit Games (Asset Project)', 'Military Weapons Silver (Asset Pack)', 'Shooter Game (Asset Sound)'].map((item, i) => <li key={i}>{item}</li>)}
         </Box>
       </Box>
 
@@ -185,21 +203,13 @@ export default function SoloProjectPage() {
         items={itemData}
       />
 
-      <Modal
-        open={openModal}
-        onClose={() => { setOpenModal(false); setSelectedImage(null); }}
-        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'rgba(0, 0, 0, 0.95)' }}
-      >
+      <Modal open={openModal} onClose={closeModal} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'rgba(0, 0, 0, 0.95)' }}>
         <Box sx={{ position: 'relative', maxWidth: '95vw', maxHeight: '95vh', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Box
-            onClick={() => { setOpenModal(false); setSelectedImage(null); }}
-            sx={{ position: 'absolute', top: 10, right: 10, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: '50%', cursor: 'pointer', fontSize: '24px', fontWeight: 'bold', zIndex: 10, '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.7)' } }}
-          >
-            ✕
-          </Box>
-          <Box onClick={handlePrevious} sx={navButtonStyle('left')}>‹</Box>
+          <Box onClick={closeModal} sx={{ position: 'absolute', top: 10, right: 10, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: '50%', cursor: 'pointer', fontSize: '24px', fontWeight: 'bold', zIndex: 10, '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.7)' } }}>✕</Box>
+          <Box sx={{ position: 'absolute', top: 10, right: 60, padding: '4px 12px', color: 'white', bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: '4px', fontSize: '14px', fontWeight: 'bold', zIndex: 10 }}>{currentIndex + 1}/{currentGallery.length}</Box>
+          <Box onClick={handlePrevious} sx={navButtonStyle('left')}>❮</Box>
           {selectedImage && <img src={selectedImage} alt="Full view" style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }} />}
-          <Box onClick={handleNext} sx={navButtonStyle('right')}>›</Box>
+          <Box onClick={handleNext} sx={navButtonStyle('right')}>❯</Box>
         </Box>
       </Modal>
 

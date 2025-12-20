@@ -46,9 +46,9 @@ export default function AboutPage() {
           <Box sx={{ flex: '1 1 300px', textAlign: 'left' }}>
             <Typography variant="h6" className="reveal-on-scroll" sx={{ fontWeight: 'bold', mb: 2, color: 'var(--accent)', fontSize: '1.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hobbies</Typography>
             <Box component="ul" className="reveal-on-scroll" sx={{ listStyle: 'disc', ml: 2.5, mb: 4, color: '#d4c5b9', lineHeight: 1.6, fontSize: '1.3rem', '& li': { marginBottom: '0.6em' } }}>
-              {['Talkless, quiet person.',
-                'Addict documentaries, movies, animations, songs, music, tech, sports, and e-sports.',
+              {['Addict documentaries, movies, animations, performances, songs, music, tech, GDC festival of gaming, awards, sports, and e-sports.',
                 'Watch Gameplay walkthrough: RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, and Racing.',
+                'Upgrade old skills: 2d drawing, 3d sculpting, and Programming.',
                 'Goal obtain in 3 year: Complete English level testing; Perceive Unreal Engine 5-create RPG mobile, multiplayer shooter PC with C++, and multiplsyer RPG PC games.',
                 'Do road trips, go to concerts, and explore nature.'].map((item, i) => <li key={i}>{item}</li>)}
             </Box>
@@ -75,7 +75,7 @@ export default function AboutPage() {
             <Box key={i} component="a" href={card.href} target="_blank" rel="noopener noreferrer" className="reveal-on-scroll" sx={cardStyle}>
               <Box component="img" src={card.bg} alt={card.title} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               <Box sx={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,.75))', display: 'flex', alignItems: 'center', justifyContent: 'center', p: 2 }}>
-                <Typography sx={{ textAlign: 'center', color: '#fff', fontWeight: 800, fontSize: '18px', lineHeight: 1.3, textShadow: '0 2px 10px rgba(0,0,0,.9)' }}>{card.title}</Typography>
+                <Typography sx={{ textAlign: 'center', color: '#c9a961', fontWeight: 800, fontSize: '18px', lineHeight: 1.3, textShadow: '0 2px 10px rgba(0,0,0,.9)' }}>{card.title}</Typography>
               </Box>
             </Box>
           ))}

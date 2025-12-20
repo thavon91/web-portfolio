@@ -38,10 +38,10 @@ import Devr3 from '../assets/GDD/Dev Roadmap/Devr3.png';
 const sx = {
   page: { width: '210mm', height: '297mm', borderRadius: '12px', boxShadow: '0 18px 40px rgba(0,0,0,.45), inset 0 1px 1px rgba(255,255,255,.08)', overflow: 'hidden', flexShrink: 0 },
   img: { width: '100%', objectFit: 'cover', borderRadius: '4px', boxShadow: '0 4px 12px rgba(0,0,0,0.7)', border: '2px solid rgba(201,169,97,0.25)' },
-  txt: { color: '#ffffff', fontSize: '1.3rem', lineHeight: 1.6 },
-  list: { m: 0, pl: '20px', color: '#ffffff', fontSize: '1.3rem', lineHeight: 1.6 },
-  title: { color: '#fff', fontWeight: 700, fontSize: 'clamp(4rem,6vw,5rem)', mb: '25px', fontFamily: 'serif', position: 'relative', zIndex: 1 },
-  sub: { color: '#fff', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }
+  txt: { color: '#c9a961', fontSize: '1.3rem', lineHeight: 1.6 },
+  list: { m: 0, pl: '20px', color: '#c9a961', fontSize: '1.3rem', lineHeight: 1.6 },
+  title: { color: '#c9a961', fontWeight: 700, fontSize: 'clamp(4rem,6vw,5rem)', mb: '25px', fontFamily: 'serif', position: 'relative', zIndex: 1 },
+  sub: { color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }
 };
 
 const Page = ({ children, bg, overlay = 0.85 }) => (
@@ -51,8 +51,8 @@ const Page = ({ children, bg, overlay = 0.85 }) => (
 const Title = ({ children, mb = '25px', ...p }) => <Typography variant="h3" sx={{ ...sx.title, mb, ...p.sx }}>{children}</Typography>;
 const Txt = ({ children, j, ...p }) => <Typography sx={{ ...sx.txt, ...(j && { textAlign: 'justify' }), ...p.sx }}>{children}</Typography>;
 const Img = ({ src, alt, h = 'auto', w, ...p }) => <Box component="img" src={src} alt={alt} sx={{ ...sx.img, height: h, ...(w && { width: w }), ...p.sx }} />;
-const List = ({ items, ...p }) => <Box component="ul" sx={{ ...sx.list, ...p.sx }}>{items.map((item, i) => <li key={i}>{typeof item === 'object' ? <><Typography component="span" sx={{ fontWeight: 600, color: '#ffffff' }}>{item.label}:</Typography> {item.text}</> : item}</li>)}</Box>;
-const Section = ({ title, children }) => <Box sx={{ mt: '10px' }}><Typography sx={{ color: '#fff', fontWeight: 600, fontSize: '1.5rem', mb: '8px' }}>{title}</Typography>{children}</Box>;
+const List = ({ items, ...p }) => <Box component="ul" sx={{ ...sx.list, ...p.sx }}>{items.map((item, i) => <li key={i}>{typeof item === 'object' ? <><Typography component="span" sx={{ fontWeight: 600, color: '#c9a961' }}>{item.label}:</Typography> {item.text}</> : item}</li>)}</Box>;
+const Section = ({ title, children }) => <Box sx={{ mt: '10px' }}><Typography sx={{ color: '#c9a961', fontWeight: 600, fontSize: '1.5rem', mb: '8px' }}>{title}</Typography>{children}</Box>;
 
 export default function GDDPage() {
   const handleExportPDF = async () => {
@@ -126,23 +126,36 @@ export default function GDDPage() {
       {/* Cover */}
       <Box className="reveal-on-scroll" sx={{ ...sx.page, backgroundImage: `url(${WitchClass1})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center', p: '50px 60px', '&::before': { content: '""', position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 0 } }}>
         <Box sx={{ position: 'relative', zIndex: 1, pt: '20px' }}>
-          <Typography sx={{ color: '#fff', fontWeight: 300, fontSize: 'clamp(1.5rem,4vw,2.2rem)', letterSpacing: '4px', mb: '-10px' }}>The</Typography>
-          <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: 'clamp(3rem,8vw,5.5rem)', letterSpacing: '6px', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>Forsaken</Typography>
+          <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(1.5rem,4vw,2.2rem)', letterSpacing: '4px', mb: '-10px' }}>The</Typography>
+          <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: 'clamp(3rem,8vw,5.5rem)', letterSpacing: '6px', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>Forsaken</Typography>
         </Box>
-        <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '30px', alignItems: 'center', pt: '120px' }}>
-          <Typography sx={{ color: '#fff', fontWeight: 600, letterSpacing: '6px', fontSize: 'clamp(1rem,2.5vw,1.4rem)' }}>GAME DESIGN DOCUMENT</Typography>
+        <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', pt: '80px' }}>
+          <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '6px', fontSize: 'clamp(1rem,2.5vw,1.4rem)' }}>GAME DESIGN DOCUMENT</Typography>
           <Box>
-            <Typography sx={{ color: '#fff', fontWeight: 600, letterSpacing: '3px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>WRITTEN BY:</Typography>
-            <Typography sx={{ color: '#fff', fontWeight: 400, fontSize: 'clamp(1rem,2.2vw,1.2rem)', mb: 0.5 }}>Hei Thavon</Typography>
-            <Typography sx={{ color: '#fff', fontWeight: 300, fontSize: 'clamp(0.8rem,1.8vw,0.95rem)', lineHeight: 1.4 }}>IT Technician, Junior Game Design and Developer</Typography>
+            <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '3px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>WRITTEN BY:</Typography>
+            <Typography sx={{ color: '#c9a961', fontWeight: 400, fontSize: 'clamp(1rem,2.2vw,1.2rem)', mb: 0.5 }}>Hei Thavon</Typography>
+            <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(0.95rem,2vw,0.95rem)', lineHeight: 1.4 }}>IT Technician, Junior Game Design and Developer</Typography>
           </Box>
-          <Box sx={{ mt: 2 }}>
-            <Typography sx={{ color: '#fff', fontWeight: 600, letterSpacing: '2px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>VERSION # 1.00</Typography>
-            <Typography sx={{ color: '#fff', fontWeight: 300, fontSize: 'clamp(0.85rem,1.8vw,0.95rem)', mb: 3 }}>Monday, November 24, 2025</Typography>
-            <Button className="no-print" onClick={handleExportPDF} sx={{ mt: 2, px: 4, py: 2, background: 'linear-gradient(135deg,#c9a961,#a68860)', color: '#2a2420', fontWeight: 'bold', fontSize: '16px', borderRadius: '8px', boxShadow: '0 6px 20px rgba(201,169,97,.3), inset 0 1px 0 rgba(255,255,255,.15)', '&:hover': { background: 'linear-gradient(135deg,#d4b370,#b39370)', transform: 'translateY(-2px)', boxShadow: '0 10px 28px rgba(201,169,97,.4)' } }}>EXPORT GDD TO PDF</Button>
+          <Box>
+            <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '2px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>VERSION # 1.00</Typography>
+            <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(0.95rem,2vw,0.95rem)', mb: 2 }}>Monday, November 24, 2025</Typography>
+            <Button className="no-print" onClick={handleExportPDF} sx={{ mt: 1, px: 4, py: 2, background: 'linear-gradient(135deg,#c9a961,#a68860)', color: '#2a2420', fontWeight: 'bold', fontSize: '16px', borderRadius: '8px', boxShadow: '0 6px 20px rgba(201,169,97,.3), inset 0 1px 0 rgba(255,255,255,.15)', '&:hover': { background: 'linear-gradient(135deg,#d4b370,#b39370)', transform: 'translateY(-2px)', boxShadow: '0 10px 28px rgba(201,169,97,.4)' } }}>EXPORT GDD TO PDF</Button>
+          </Box>
+          <Box className="no-print" sx={{ position: 'relative', zIndex: 1, mt: 2, pt: 2, borderTop: '1px solid rgba(201,169,97,0.3)', width: '100%', maxWidth: '500px' }}>
+            <Typography sx={{ color: '#c9a961', fontWeight: 600, fontSize: '0.9rem', mb: 1, letterSpacing: '1px', textAlign: 'center' }}>REFERENCES & RESOURCES:</Typography>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+              {[
+                { url: 'https://allyn-david.itch.io/gdd-maker', text: 'GDD Maker Tool' },
+                { url: 'https://vamparise.itch.io/documents', text: 'Game Design Document Templates' },
+                { url: 'https://gamedesignskills.com/game-design/document/', text: 'Game Design Document Guide' },
+                { url: 'https://kevurugames.com/blog/how-to-write-a-game-design-document-gdd/', text: 'How to Write a GDD' }
+              ].map((link, i) => (
+                <Typography key={i} component="a" href={link.url} target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', fontSize: '1rem', textDecoration: 'none', transition: 'all 0.2s', textAlign: 'center', '&:hover': { color: '#d4b370', transform: 'translateX(4px)' } }}>• {link.text}</Typography>
+              ))}
+            </Box>
           </Box>
         </Box>
-        <Box sx={{ position: 'relative', zIndex: 1, height: '80px' }} />
+        <Box sx={{ position: 'relative', zIndex: 1, height: '10px' }} />
       </Box>
 
       {/* Concept */}
@@ -196,6 +209,16 @@ export default function GDDPage() {
             </Box>
           </Box>
 
+          <Box sx={{ mt: '25px', pt: '20px', borderTop: '1px solid rgba(201,169,97,0.3)' }}>
+            <Typography sx={{ ...sx.sub, mb: '12px' }}>Additional Resources:</Typography>
+            <Box component="ul" sx={{ ...sx.list }}>
+              <li><Typography component="a" href="https://allyn-david.itch.io/gdd-maker" target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>GDD Maker Tool</Typography> - Interactive game design document creation tool</li>
+              <li><Typography component="a" href="https://vamparise.itch.io/documents" target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Game Design Document Templates</Typography> - Collection of professional GDD templates</li>
+              <li><Typography component="a" href="https://gamedesignskills.com/game-design/document/" target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Game Design Document Guide</Typography> - Comprehensive guide to writing GDDs</li>
+              <li><Typography component="a" href="https://kevurugames.com/blog/how-to-write-a-game-design-document-gdd/" target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>How to Write a Game Design Document</Typography> - Best practices and tips for GDD creation</li>
+            </Box>
+          </Box>
+
         </Box>
       </Page>
 
@@ -241,7 +264,7 @@ export default function GDDPage() {
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Box sx={{ display: 'flex', gap: '28px', alignItems: 'flex-start' }}>
             <Box sx={{ flex: '0 0 65%', display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Reference: Frieren</Typography>
+              <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Reference: Frieren</Typography>
               <List items={['Personality: She listens more than she speaks, and often pauses before answering, as if considering centuries of memory. Appears cold at first, but hides a deep compassion known only to those patient enough to stay by her side.', 'Appearance: A slender elf with pale, worn from centuries of travel, and yet faintly glow with lingering star-magic. Rarely smiles, but radiates a quiet gentleness.']} />
             </Box>
             <Box sx={{ flex: '0 0 32%', mt: '20px' }}>
@@ -249,7 +272,7 @@ export default function GDDPage() {
             </Box>
           </Box>
           <Box>
-            <Typography sx={{ color: '#fff', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Abilities:</Typography>
+            <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Abilities:</Typography>
             <List items={[
               { label: 'Astral Magic', text: 'Draws power from constellations and distant realms.' },
               { label: 'Long-Lived Insight', text: 'Understands people after watching many generations pass.' },
@@ -271,7 +294,7 @@ export default function GDDPage() {
                 <Txt>A young huntress gifted with innate magical affinity, trained to master ancient abilities awakened within her.</Txt>
               </Box>
               <Box>
-                <Typography sx={{ color: '#ffffff', fontWeight: 700, fontSize: '1.5rem', mb: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Physiology</Typography>
+                <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Physiology</Typography>
                 <Box component="ul" sx={{ m: 0, pl: '20px', color: '#d4c5b9', fontSize: '1.3rem', lineHeight: 1.6 }}>
                   {['Gender: Female', 'Age: 17', 'Hair Color: Brown', 'Eye Color: Blue / Purple', 'Height: 1.57 m', 'Weight: 47 kg', 'Outfit: Light armor, enchanted sash, and leather boots.'].map((t, i) => <li key={i}>{t}</li>)}
                 </Box>
@@ -284,7 +307,7 @@ export default function GDDPage() {
               {[Char4, Char5].map((src, i) => <Img key={i} src={src} alt={`Frieluna ${i + 1}`} h="225px" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)' }} />)}
             </Box>
             <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-              <Typography sx={{ color: '#ffffff', fontWeight: 700, fontSize: '1.5rem', mb: '2px', textTransform: 'uppercase', letterSpacing: '1px' }}>Sociology</Typography>
+              <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '2px', textTransform: 'uppercase', letterSpacing: '1px' }}>Sociology</Typography>
               <Box component="ul" sx={{ m: 0, pl: '20px', color: '#d4c5b9', fontSize: '1.3rem', lineHeight: 1.6 }}>
                 {['Class: Wanderer / Apprentice Spellblade', 'Residence: Nomadic (travels between ruins, shrines, and frontier towns)', 'Occupation: Monster hunter, relic seeker', 'Family Background: Orphan raised by frontier villagers', 'Economic Status: Low income; relies on hunting and exploring', 'Home Life: Lives alone; spends most time traveling', "Religion: Doesn't follow structured religion, believes in ancient elemental forces", 'Social Traits: Respectful, cooperative', 'Hobbies: Studying relics, practicing abilities, observing magical wildlife'].map((t, i) => <li key={i}>{t}</li>)}
               </Box>
@@ -300,7 +323,7 @@ export default function GDDPage() {
           <Box sx={{ flex: '0 0 38%', display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <Img src={Char6} alt="Frieluna" sx={{ width: '100%', maxWidth: '420px', height: 'auto', border: '2px solid rgba(201, 169, 97, 0.35)' }} />
             <Box sx={{ mt: '15px' }}>
-              <Typography sx={{ color: '#ffffff', fontWeight: 700, fontSize: '1.5rem', mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Psychology</Typography>
+              <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Psychology</Typography>
               <Box component="ul" sx={{ m: 0, pl: '20px', color: '#d4c5b9', fontSize: '1.1rem', lineHeight: 1.7 }}>
                 {[
                   { label: 'Personality Type', text: 'Determined, curious, empathetic' },
@@ -312,13 +335,13 @@ export default function GDDPage() {
                   { label: 'Attitude', text: 'Driven to uncover the truth of her powers' }
                 ].map((item, i) => (
                   <li key={i}>
-                    <Typography component="span" sx={{ fontWeight: 600, color: '#ffffff' }}>{item.label}:</Typography> {item.text}
+                    <Typography component="span" sx={{ fontWeight: 600, color: '#c9a961' }}>{item.label}:</Typography> {item.text}
                   </li>
                 ))}
               </Box>
             </Box>
             <Box sx={{ mt: '15px' }}>
-              <Typography sx={{ color: '#ffffff', fontWeight: 700, fontSize: '1.5rem', mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Backstory</Typography>
+              <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Backstory</Typography>
               <Txt j sx={{ fontSize: '1.1rem', lineHeight: 1.7 }}>Frieluna was found as a child near the ruins of an ancient shrine, the only survivor of a mysterious incident marked by lingering magical energy.</Txt>
             </Box>
           </Box>
@@ -326,7 +349,7 @@ export default function GDDPage() {
           {/* Right Column: Abilities */}
           <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
             <Box>
-              <Typography sx={{ color: '#ffffff', fontWeight: 700, fontSize: '1.5rem', mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Abilities</Typography>
+              <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Abilities</Typography>
               {[
                 {
                   name: 'Firebolt', items: [
@@ -359,11 +382,11 @@ export default function GDDPage() {
                 }
               ].map((ability, i) => (
                 <Box key={i} sx={{ mb: '8px' }}>
-                  <Typography sx={{ color: '#ffffff', fontWeight: 700, fontSize: '1.25rem', mb: '2px' }}>• {ability.name}</Typography>
+                  <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.25rem', mb: '2px' }}>• {ability.name}</Typography>
                   <Box sx={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
                     {ability.items.map((item, j) => (
                       <Typography key={j} sx={{ color: '#d4c5b9', fontSize: '1.1rem', lineHeight: 1.5 }}>
-                        <Typography component="span" sx={{ fontWeight: 600, color: '#ffffff' }}>{item.label}:</Typography> {item.text}
+                        <Typography component="span" sx={{ fontWeight: 600, color: '#c9a961' }}>{item.label}:</Typography> {item.text}
                       </Typography>
                     ))}
                   </Box>
@@ -410,12 +433,35 @@ export default function GDDPage() {
         </Box>
       </Page>
 
+      {/* Tools and Spaces Needs & Team and Skills Needs */}
+      <Page bg={BackgroundF}>
+        <Title sx={{ fontSize: '4.5rem', mb: '20px' }}>Tools and Spaces Needs</Title>
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
+          <List items={['Office space and Equipment', 'Computers and Software licences', 'Unreal Engine and Blueprint', 'C++, .Net Framework, DirectX, 3D Math, 3D Physics', 'Visual Studio, Visual Studio Code, Cursor, or Others', 'Github, Gitlab, Drive, and ...', 'Discord', 'Blender, Autodesk 3ds Max, ZBrush, Autodesk Maya, Substance Painter, 3D Studio Max', 'FMOD, Wwise']} sx={{ lineHeight: 1.55 }} />
+        </Box>
+        <Title sx={{ fontSize: '4.5rem', mb: '20px', mt: '35px' }}>Team and Skills Needs</Title>
+        <Box sx={{ position: 'relative', zIndex: 1 }}>
+          <Box component="ul" sx={{ ...sx.list, lineHeight: 1.55 }}>
+            {[
+              ['Art Creator', '(Conceptual Art, 3D Model, Digital Sculpting, Bodypaint, Texture, UV Mapping,)'],
+              ['Animator', '(3D Animation, Keyframe Animation, Rigging, Visual Effects, Cinematics)'],
+              ['Level Designer', '(Environment Art, Visual Assets, Gameplay experience)'],
+              ['Sound Designer', '(Audio middleware, Sound mix, Sound design)'],
+              ['Programmer', '(Game Dev, Mechanics, and Controllers)'],
+              ['Narrative Designer', '(Story Structure, Screenwriting, Dialogue, and Character interactions)'],
+              ['Producer', '(Pipeline Development, Project Planning, Budgeting, Project Management, Project Coordination, Community Management)'],
+              ['QA/QC', '(QA Automation, Quality Management, Quality Control, Test Planning, Bug Tracking, Manual Testing, Test Execution, Black Box Testing, White Box Testing)']
+            ].map(([role, desc], i) => <li key={i}><strong>{role}</strong><br />{desc}</li>)}
+          </Box>
+        </Box>
+      </Page>
+
       {/* Development Roadmap */}
       <Page bg={BackgroundF}>
         <Typography variant="h3" sx={{ ...sx.title, fontSize: 'clamp(3.5rem, 6vw, 4.5rem)' }}>Development</Typography>
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <Typography sx={{ color: '#ffffff', fontWeight: 600, fontSize: '1.25rem', mb: '5px' }}>Development estimate timeline is on Github</Typography>
-          <Txt j sx={{ mb: '15px' }}>This section links directly to the project's Github repository milestones, showcasing major development phases, feature implementations, and AI behavior.</Txt>
+          <Typography sx={{ color: '#c9a961', fontWeight: 600, fontSize: '1.25rem', mb: '5px' }}>Development estimate timeline is on Github</Typography>
+          <Txt j sx={{ mb: '15px' }}>The estimated timeline of development is one year or less than that, up to the team size, solo or team. This section links directly to the project's GitHub repository milestone, showcasing major development phases, feature implementations, and AI behavior.</Txt>
           <Img src={Devr1} alt="Roadmap Overview" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)', boxShadow: '0 6px 16px rgba(0,0,0,0.8)', mb: '15px' }} />
           <Box sx={{ display: 'flex', gap: '20px', mb: '15px' }}>
             {[Devr2, Devr3].map((src, i) => <Img key={i} src={src} alt={`Roadmap ${i + 2}`} w="48%" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)', boxShadow: '0 6px 16px rgba(0,0,0,0.8)' }} />)}
