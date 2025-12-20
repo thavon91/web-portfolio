@@ -44,7 +44,7 @@ const sx = {
     overflow: 'hidden',
     flexShrink: 0
   },
-  img: { width: '100%', objectFit: 'cover', borderRadius: '4px', boxShadow: '0 4px 12px rgba(0,0,0,0.7)', border: '2px solid rgba(201,169,97,0.25)' },
+  img: { width: '100%', maxWidth: '100%', objectFit: 'cover', borderRadius: '4px', boxShadow: '0 4px 12px rgba(0,0,0,0.7)', border: '2px solid rgba(201,169,97,0.25)' },
   txt: { color: '#c9a961', fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' }, lineHeight: 1.6 },
   list: { m: 0, pl: '20px', color: '#c9a961', fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' }, lineHeight: 1.6 },
   title: { color: '#c9a961', fontWeight: 700, fontSize: 'clamp(4rem,6vw,5rem)', mb: '25px', fontFamily: 'serif', position: 'relative', zIndex: 1 },
@@ -71,7 +71,8 @@ export default function GDDPage() {
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
 
-      const pages = element.querySelectorAll('.reveal-on-scroll');
+      // Select only direct page children (not all reveal-on-scroll elements)
+      const pages = element.querySelectorAll('.gdd-content > .reveal-on-scroll');
       const pdf = new jsPDF('p', 'mm', 'a4');
 
       for (let i = 0; i < pages.length; i++) {
@@ -86,11 +87,12 @@ export default function GDDPage() {
           scrollY: -window.scrollY,
           scrollX: -window.scrollX,
           onclone: (clonedDoc) => {
-            const clonedPage = clonedDoc.querySelector('.reveal-on-scroll:nth-child(' + (i + 1) + ')');
-            if (clonedPage) {
-              clonedPage.style.transform = 'none';
-              clonedPage.style.opacity = '1';
-            }
+            // Remove all animations from cloned document
+            const allElements = clonedDoc.querySelectorAll('.reveal-on-scroll');
+            allElements.forEach(el => {
+              el.style.transform = 'none';
+              el.style.opacity = '1';
+            });
             // Hide scrollbars and buttons in cloned document
             clonedDoc.body.style.overflow = 'hidden';
             const noPrintElements = clonedDoc.querySelectorAll('.no-print');
@@ -157,7 +159,7 @@ export default function GDDPage() {
                 { url: 'https://gamedesignskills.com/game-design/document/', text: 'Game Design Document Guide' },
                 { url: 'https://kevurugames.com/blog/how-to-write-a-game-design-document-gdd/', text: 'How to Write a GDD' }
               ].map((link, i) => (
-                <Typography key={i} component="a" href={link.url} target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', fontSize: '1rem', textDecoration: 'none', transition: 'all 0.2s', textAlign: 'center', '&:hover': { color: '#d4b370', transform: 'translateX(4px)' } }}>• {link.text}</Typography>
+                <Typography key={i} component="a" href={link.url} target="_blank" rel="noopener noreferrer" sx={{ color: '#c9a961', fontSize: '1rem', textDecoration: 'underline', fontStyle: 'italic', transition: 'all 0.2s', textAlign: 'center', '&:hover': { color: '#d4b370', transform: 'translateX(4px)' } }}>• {link.text}</Typography>
               ))}
             </Box>
           </Box>
@@ -460,8 +462,8 @@ export default function GDDPage() {
           <Typography sx={{ color: '#c9a961', fontWeight: 600, fontSize: '1.25rem', mb: '5px' }}>Development estimate timeline is on Github</Typography>
           <Txt j sx={{ mb: '15px' }}>The estimated timeline of development is one year or less than that, up to the team size, solo or team. This section links directly to the project's GitHub repository milestone, showcasing major development phases, feature implementations, and AI behavior.</Txt>
           <Img src={Devr1} alt="Roadmap Overview" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)', boxShadow: '0 6px 16px rgba(0,0,0,0.8)', mb: '15px' }} />
-          <Box sx={{ display: 'flex', gap: '20px', mb: '15px' }}>
-            {[Devr2, Devr3].map((src, i) => <Img key={i} src={src} alt={`Roadmap ${i + 2}`} w="48%" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)', boxShadow: '0 6px 16px rgba(0,0,0,0.8)' }} />)}
+          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: '15px', sm: '20px' }, mb: '15px' }}>
+            {[Devr2, Devr3].map((src, i) => <Img key={i} src={src} alt={`Roadmap ${i + 2}`} w={{ xs: '100%', sm: '48%' }} sx={{ border: '2px solid rgba(201, 169, 97, 0.35)', boxShadow: '0 6px 16px rgba(0,0,0,0.8)' }} />)}
           </Box>
           <Txt j sx={{ mt: '10px' }}>(Please check on Github link <Typography component="a" href="https://github.com/users/thavonptml91-dev/projects/1" target="_blank" rel="noopener noreferrer" sx={{ fontStyle: 'italic', textDecoration: 'underline', color: 'inherit', cursor: 'pointer', '&:hover': { color: '#c9a961' } }}>here</Typography>)</Txt>
         </Box>
