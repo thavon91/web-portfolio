@@ -66,13 +66,9 @@ export default function GDDPage() {
     const element = document.querySelector('.gdd-content');
     if (!element) return;
 
-    // Check if mobile device
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-    if (isMobile) {
-      const confirm = window.confirm('PDF export on mobile may take longer and use more memory. Continue anyway?\n\nTip: You can also use your browser\'s "Print to PDF" feature as an alternative.');
-      if (!confirm) return;
-    }
+    // Ask for confirmation before starting export
+    const confirmExport = window.confirm('Do you want to export the GDD as a PDF? This may take a few moments.');
+    if (!confirmExport) return;
 
     try {
       // Show loading message
@@ -89,8 +85,7 @@ export default function GDDPage() {
       const pages = element.querySelectorAll('.gdd-content > .reveal-on-scroll');
       const pdf = new jsPDF('p', 'mm', 'a4');
 
-      // Use lower scale on mobile for better performance
-      const scale = isMobile ? 1.0 : 1.5;
+      const scale = 1.5;
 
       for (let i = 0; i < pages.length; i++) {
         const page = pages[i];
