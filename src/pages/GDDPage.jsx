@@ -55,11 +55,11 @@ const Page = ({ children, bg, overlay = 0.85 }) => (
   <Box className="reveal-on-scroll" sx={{ ...sx.page, backgroundImage: `url(${bg})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', flexDirection: 'column', p: { xs: '25px 20px', sm: '35px 40px', md: '50px 60px' }, '&::before': { content: '""', position: 'absolute', inset: 0, zIndex: 0, backgroundColor: `rgba(0,0,0,${overlay})` } }}>{children}</Box>
 );
 
-const Title = ({ children, mb = '25px', ...p }) => <Typography variant="h3" sx={{ ...sx.title, mb, ...p.sx }}>{children}</Typography>;
-const Txt = ({ children, j, ...p }) => <Typography sx={{ ...sx.txt, ...(j && { textAlign: 'justify' }), ...p.sx }}>{children}</Typography>;
-const Img = ({ src, alt, h = 'auto', w, ...p }) => <Box component="img" src={src} alt={alt} sx={{ ...sx.img, height: h, ...(w && { width: w }), ...p.sx }} />;
-const List = ({ items, ...p }) => <Box component="ul" sx={{ ...sx.list, ...p.sx }}>{items.map((item, i) => <li key={i}>{typeof item === 'object' ? <><Typography component="span" sx={{ fontWeight: 600, color: '#c9a961' }}>{item.label}:</Typography> {item.text}</> : item}</li>)}</Box>;
-const Section = ({ title, children }) => <Box sx={{ mt: '10px' }}><Typography sx={{ color: '#c9a961', fontWeight: 600, fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }, mb: '8px' }}>{title}</Typography>{children}</Box>;
+const Title = ({ children, mb = '25px', ...p }) => <Typography className="reveal-on-scroll" variant="h3" sx={{ ...sx.title, mb, ...p.sx }}>{children}</Typography>;
+const Txt = ({ children, j, ...p }) => <Typography className="reveal-on-scroll" sx={{ ...sx.txt, ...(j && { textAlign: 'justify' }), ...p.sx }}>{children}</Typography>;
+const Img = ({ src, alt, h = 'auto', w, ...p }) => <Box className="reveal-on-scroll" component="img" src={src} alt={alt} sx={{ ...sx.img, height: h, ...(w && { width: w }), ...p.sx }} />;
+const List = ({ items, ...p }) => <Box className="reveal-on-scroll" component="ul" sx={{ ...sx.list, ...p.sx }}>{items.map((item, i) => <li key={i}>{typeof item === 'object' ? <><Typography component="span" sx={{ fontWeight: 600, color: '#c9a961' }}>{item.label}:</Typography> {item.text}</> : item}</li>)}</Box>;
+const Section = ({ title, children }) => <Box className="reveal-on-scroll" sx={{ mt: '10px' }}><Typography sx={{ color: '#c9a961', fontWeight: 600, fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }, mb: '8px' }}>{title}</Typography>{children}</Box>;
 
 export default function GDDPage() {
   const handleExportPDF = async () => {
@@ -133,17 +133,17 @@ export default function GDDPage() {
       {/* Cover */}
       <Box className="reveal-on-scroll" sx={{ ...sx.page, backgroundImage: `url(${WitchClass1})`, backgroundSize: 'cover', backgroundPosition: 'center', position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center', p: { xs: '30px 20px', sm: '40px 40px', md: '50px 60px' }, '&::before': { content: '""', position: 'absolute', inset: 0, backgroundColor: 'rgba(0,0,0,0.4)', zIndex: 0 } }}>
         <Box sx={{ position: 'relative', zIndex: 1, pt: '20px' }}>
-          <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(1.5rem,4vw,2.2rem)', letterSpacing: '4px', mb: '-10px' }}>The</Typography>
-          <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: 'clamp(3rem,8vw,5.5rem)', letterSpacing: '6px', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>Forsaken</Typography>
+          <Typography className="reveal-on-scroll" sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(1.5rem,4vw,2.2rem)', letterSpacing: '4px', mb: '-10px' }}>The</Typography>
+          <Typography className="reveal-on-scroll" sx={{ color: '#c9a961', fontWeight: 700, fontSize: 'clamp(3rem,8vw,5.5rem)', letterSpacing: '6px', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>Forsaken</Typography>
         </Box>
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', pt: '80px' }}>
-          <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '6px', fontSize: 'clamp(1rem,2.5vw,1.4rem)' }}>GAME DESIGN DOCUMENT</Typography>
-          <Box>
+          <Typography className="reveal-on-scroll" sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '6px', fontSize: 'clamp(1rem,2.5vw,1.4rem)' }}>GAME DESIGN DOCUMENT</Typography>
+          <Box className="reveal-on-scroll">
             <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '3px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>WRITTEN BY:</Typography>
             <Typography sx={{ color: '#c9a961', fontWeight: 400, fontSize: 'clamp(1rem,2.2vw,1.2rem)', mb: 0.5 }}>Hei Thavon</Typography>
             <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(0.95rem,2vw,0.95rem)', lineHeight: 1.4 }}>IT Technician, Junior Game Design and Developer</Typography>
           </Box>
-          <Box>
+          <Box className="reveal-on-scroll">
             <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '2px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>VERSION # 1.00</Typography>
             <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(0.95rem,2vw,0.95rem)', mb: 2 }}>Monday, November 24, 2025</Typography>
             <Button className="no-print" onClick={handleExportPDF} sx={{ mt: 1, px: { xs: 2, sm: 3, md: 4 }, py: { xs: 1.5, md: 2 }, background: 'linear-gradient(135deg,#c9a961,#a68860)', color: '#2a2420', fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' }, borderRadius: '8px', boxShadow: '0 6px 20px rgba(201,169,97,.3), inset 0 1px 0 rgba(255,255,255,.15)', '&:hover': { background: 'linear-gradient(135deg,#d4b370,#b39370)', transform: 'translateY(-2px)', boxShadow: '0 10px 28px rgba(201,169,97,.4)' } }}>EXPORT GDD TO PDF</Button>
@@ -186,7 +186,7 @@ export default function GDDPage() {
       <Page bg={BackgroundF}>
         <Title mb="20px">References</Title>
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px', position: 'relative', zIndex: 1 }}>
-          <Box>
+          <Box className="reveal-on-scroll">
             <Typography sx={{ ...sx.sub }}>Path of Exile 2:</Typography>
             <List items={['The main inspiration for this game comes from POE 2, shaping both its combat philosophy and gameplay structure. The fast, ability combat informs how players chain skills, manage cooldowns, and react to enemy patterns. Its rich 3D environments and atmospheric exploration.']} />
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: '12px', mt: '15px', height: { xs: 'auto', sm: '200px' } }}>
@@ -197,13 +197,13 @@ export default function GDDPage() {
             </Box>
           </Box>
 
-          <Box sx={{ mt: '15px' }}>
+          <Box className="reveal-on-scroll" sx={{ mt: '15px' }}>
             <Typography sx={{ ...sx.sub }}>Dungeon Hunter 4:</Typography>
             <List items={['Second reference is Dungeon Hunter 4, especially in the game\'s atmosphere carries a feeling of constant tension between the mortal realm and the demonic forces threatening it. Dungeon Hunter 4 inspires the use of gothic ruins, corrupted landscapes, and shadowy ambient.']} />
           </Box>
-          <Box sx={{ mt: '10px' }}>
+          <Box className="reveal-on-scroll" sx={{ mt: '10px' }}>
             <Typography sx={{ ...sx.sub }}>No Rest for the Wicked:</Typography>
-            <Box component="ul" sx={{ ...sx.list, mb: '15px' }}><li>Last reference is No Rest for the Wicked, the game's emphasis on precision, stamina control, and skill encounters. Its handcrafted world, rich with storytelling, and lived-in spaces. Its focus on expression through mastery, reinforcing the tone of gritty struggle and earned power.</li></Box>
+            <Box className="reveal-on-scroll" component="ul" sx={{ ...sx.list, mb: '15px' }}><li>Last reference is No Rest for the Wicked, the game's emphasis on precision, stamina control, and skill encounters. Its handcrafted world, rich with storytelling, and lived-in spaces. Its focus on expression through mastery, reinforcing the tone of gritty struggle and earned power.</li></Box>
             <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: '15px', height: { xs: 'auto', sm: '260px' } }}>
               <Img src={Refe4} alt="Dungeon Hunter 4" w={{ xs: '100%', sm: '42%' }} h={{ xs: '200px', sm: '100%' }} />
               <Box sx={{ width: { xs: '100%', sm: '56%' }, display: 'flex', flexDirection: 'column', gap: '15px' }}>
@@ -261,14 +261,14 @@ export default function GDDPage() {
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Box sx={{ display: 'flex', gap: '28px', alignItems: 'flex-start' }}>
             <Box sx={{ flex: '0 0 65%', display: 'flex', flexDirection: 'column', gap: '18px' }}>
-              <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Reference: Frieren</Typography>
+              <Typography className="reveal-on-scroll" sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Reference: Frieren</Typography>
               <List items={['Personality: She listens more than she speaks, and often pauses before answering, as if considering centuries of memory. Appears cold at first, but hides a deep compassion known only to those patient enough to stay by her side.', 'Appearance: A slender elf with pale, worn from centuries of travel, and yet faintly glow with lingering star-magic. Rarely smiles, but radiates a quiet gentleness.']} />
             </Box>
             <Box sx={{ flex: '0 0 32%', mt: '20px' }}>
               <Img src={Char1} alt="Frieren" h="335px" />
             </Box>
           </Box>
-          <Box>
+          <Box className="reveal-on-scroll">
             <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px' }}>Abilities:</Typography>
             <List items={[
               { label: 'Astral Magic', text: 'Draws power from constellations and distant realms.' },
@@ -282,15 +282,15 @@ export default function GDDPage() {
 
       {/* Main Character: Frieluna */}
       <Page bg={BackgroundF}>
-        <Typography variant="h3" sx={{ ...sx.title, fontSize: '1.5rem', fontWeight: 700, mb: '8px', mt: '35px' }}>Main Character: Frieluna</Typography>
+        <Typography className="reveal-on-scroll" variant="h3" sx={{ ...sx.title, fontSize: '1.5rem', fontWeight: 700, mb: '8px', mt: '35px' }}>Main Character: Frieluna</Typography>
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
           <Box sx={{ display: 'flex', gap: '30px', alignItems: 'flex-start' }}>
             <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <Box>
+              <Box className="reveal-on-scroll">
                 <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.3rem', fontStyle: 'italic', mb: '8px' }}>The Main Protagonist.</Typography>
                 <Txt>A young huntress gifted with innate magical affinity, trained to master ancient abilities awakened within her.</Txt>
               </Box>
-              <Box>
+              <Box className="reveal-on-scroll">
                 <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '8px', textTransform: 'uppercase', letterSpacing: '1px' }}>Physiology</Typography>
                 <Box component="ul" sx={{ m: 0, pl: '20px', color: '#d4c5b9', fontSize: '1.3rem', lineHeight: 1.6 }}>
                   {['Gender: Female', 'Age: 17', 'Hair Color: Brown', 'Eye Color: Blue / Purple', 'Height: 1.57 m', 'Weight: 47 kg', 'Outfit: Light armor, enchanted sash, and leather boots.'].map((t, i) => <li key={i}>{t}</li>)}
@@ -303,7 +303,7 @@ export default function GDDPage() {
             <Box sx={{ width: '35%', display: 'flex', flexDirection: 'column', gap: '15px' }}>
               {[Char4, Char5].map((src, i) => <Img key={i} src={src} alt={`Frieluna ${i + 1}`} h="225px" sx={{ border: '2px solid rgba(201, 169, 97, 0.35)' }} />)}
             </Box>
-            <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <Box className="reveal-on-scroll" sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: '1.5rem', mb: '2px', textTransform: 'uppercase', letterSpacing: '1px' }}>Sociology</Typography>
               <Box component="ul" sx={{ m: 0, pl: '20px', color: '#d4c5b9', fontSize: '1.3rem', lineHeight: 1.6 }}>
                 {['Class: Wanderer / Apprentice Spellblade', 'Residence: Nomadic (travels between ruins, shrines, and frontier towns)', 'Occupation: Monster hunter, relic seeker', 'Family Background: Orphan raised by frontier villagers', 'Economic Status: Low income; relies on hunting and exploring', 'Home Life: Lives alone; spends most time traveling', "Religion: Doesn't follow structured religion, believes in ancient elemental forces", 'Social Traits: Respectful, cooperative', 'Hobbies: Studying relics, practicing abilities, observing magical wildlife'].map((t, i) => <li key={i}>{t}</li>)}
@@ -319,7 +319,7 @@ export default function GDDPage() {
           {/* Left Column: Image + Psychology + Backstory */}
           <Box sx={{ flex: { xs: '1 1 auto', md: '0 0 38%' }, display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <Img src={Char6} alt="Frieluna" sx={{ width: '100%', maxWidth: '420px', height: 'auto', border: '2px solid rgba(201, 169, 97, 0.35)' }} />
-            <Box sx={{ mt: '15px' }}>
+            <Box className="reveal-on-scroll" sx={{ mt: '15px' }}>
               <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }, mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Psychology</Typography>
               <Box component="ul" sx={{ m: 0, pl: '20px', color: '#d4c5b9', fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }, lineHeight: 1.7, wordBreak: 'break-word' }}>
                 {[
@@ -337,7 +337,7 @@ export default function GDDPage() {
                 ))}
               </Box>
             </Box>
-            <Box sx={{ mt: '15px' }}>
+            <Box className="reveal-on-scroll" sx={{ mt: '15px' }}>
               <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }, mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Backstory</Typography>
               <Txt j sx={{ fontSize: { xs: '0.9rem', sm: '1rem', md: '1.1rem' }, lineHeight: 1.7 }}>Frieluna was found as a child near the ruins of an ancient shrine, the only survivor of a mysterious incident marked by lingering magical energy.</Txt>
             </Box>
@@ -345,7 +345,7 @@ export default function GDDPage() {
 
           {/* Right Column: Abilities */}
           <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <Box>
+            <Box className="reveal-on-scroll">
               <Typography sx={{ color: '#c9a961', fontWeight: 700, fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.5rem' }, mb: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Abilities</Typography>
               {[
                 {
