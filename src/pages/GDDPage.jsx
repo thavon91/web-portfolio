@@ -66,7 +66,21 @@ export default function GDDPage() {
     const element = document.querySelector('.gdd-content');
     if (!element) return;
 
+    // Check if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      const confirm = window.confirm('PDF export on mobile may take longer and use more memory. Continue anyway?\n\nTip: You can also use your browser\'s "Print to PDF" feature as an alternative.');
+      if (!confirm) return;
+    }
+
     try {
+      // Show loading message
+      const loadingMsg = document.createElement('div');
+      loadingMsg.textContent = 'Generating PDF... Please wait.';
+      loadingMsg.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);color:#c9a961;padding:30px 50px;border-radius:12px;z-index:9999;font-size:20px;font-weight:bold;box-shadow:0 8px 32px rgba(0,0,0,0.8);border:2px solid rgba(201,169,97,0.3);';
+      document.body.appendChild(loadingMsg);
+
       // Hide scrollbars temporarily
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
@@ -75,11 +89,15 @@ export default function GDDPage() {
       const pages = element.querySelectorAll('.gdd-content > .reveal-on-scroll');
       const pdf = new jsPDF('p', 'mm', 'a4');
 
+      // Use lower scale on mobile for better performance
+      const scale = isMobile ? 1.0 : 1.5;
+
       for (let i = 0; i < pages.length; i++) {
         const page = pages[i];
+        loadingMsg.textContent = `Generating PDF... Page ${i + 1} of ${pages.length}`;
 
         const canvas = await html2canvas(page, {
-          scale: 1.5,
+          scale: scale,
           useCORS: true,
           allowTaint: true,
           logging: false,
@@ -119,14 +137,17 @@ export default function GDDPage() {
 
       // Restore scrollbars
       document.body.style.overflow = originalOverflow;
+      document.body.removeChild(loadingMsg);
 
       pdf.save('The_Forsaken_GDD.pdf');
       alert('PDF generated successfully!');
     } catch (error) {
       console.error('Error generating PDF:', error);
-      alert('Failed to generate PDF. Please try again.');
+      alert('Failed to generate PDF. Please try again or use your browser\'s Print to PDF feature.');
       // Restore scrollbars on error
       document.body.style.overflow = originalOverflow || 'auto';
+      const loadingMsg = document.querySelector('div[style*="position:fixed"]');
+      if (loadingMsg && loadingMsg.parentNode) document.body.removeChild(loadingMsg);
     }
   };
 
