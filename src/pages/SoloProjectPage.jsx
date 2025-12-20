@@ -28,10 +28,14 @@ const timelineData = [
 ];
 
 const sectionBox = {
-  mt: 2.5, p: '28px 32px 48px', borderRadius: '12px', color: 'var(--text)',
+  mt: 2.5,
+  p: { xs: '16px', sm: '20px', md: '28px 32px 48px' },
+  borderRadius: '12px',
+  color: 'var(--text)',
   background: 'linear-gradient(180deg, rgba(139, 119, 101, .1), rgba(139, 119, 101, .05))',
   border: '1px solid rgba(201, 169, 97, .15)',
-  boxShadow: '0 18px 40px rgba(0,0,0,.45), inset 0 1px 1px rgba(255,255,255,.08)'
+  boxShadow: '0 18px 40px rgba(0,0,0,.45), inset 0 1px 1px rgba(255,255,255,.08)',
+  boxSizing: 'border-box'
 };
 
 const navButtonStyle = (position) => ({
@@ -77,11 +81,11 @@ const learning = [
 
 const GallerySection = ({ title, onClick, subtitle, items }) => (
   <Box className="reveal-on-scroll" sx={sectionBox}>
-    <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 1 }}>
+    <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 1, fontSize: { xs: '22px', sm: '26px', md: '32px' } }}>
       {title}
     </Typography>
     {subtitle && (
-      <Typography variant="body1" sx={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--muted)', mb: 3 }}>
+      <Typography variant="body1" sx={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--muted)', mb: 3, fontSize: { xs: '13px', sm: '15px', md: '16px' } }}>
         {subtitle}
       </Typography>
     )}
@@ -130,10 +134,10 @@ export default function SoloProjectPage() {
   };
 
   return (
-    <Box className="page-switch" sx={{ maxWidth: 900, margin: '8px auto 0', p: '30px' }}>
+    <Box className="page-switch" sx={{ maxWidth: 900, mx: 'auto', mt: { xs: 0, md: '8px' }, p: { xs: '8px', sm: '15px', md: '35px' }, boxSizing: 'border-box' }}>
       <Box className="reveal-on-scroll" sx={{ ...sectionBox, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 2 }}>TPS Multiplayer Game</Typography>
-        <Typography sx={{ textAlign: 'center', textIndent: '50px', lineHeight: 1.5, mb: 3 }}>
+        <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 2, fontSize: { xs: '24px', sm: '28px', md: '32px' } }}>TPS Multiplayer Game</Typography>
+        <Typography sx={{ textAlign: 'center', textIndent: { xs: '0', md: '50px' }, lineHeight: 1.5, mb: 3, fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
           PC game development: multiplayer shooter in the powerful Unreal Engine 5 using C++. This project is my aspiring shooting game, which I am passionate about creating and joining game sessions using C++ programming and connecting many players across the internet. I am eager to bring my game ideas to life and dive into the gaming studio.
         </Typography>
         <Box component="img" src={demo1} alt="TPS Multiplayer Game" width="100%" sx={{ aspectRatio: '16 / 9', borderRadius: '8px', objectFit: 'cover' }} />
@@ -142,16 +146,16 @@ export default function SoloProjectPage() {
         </Button>
       </Box>
 
-      <Box className="reveal-on-scroll" sx={{ ...sectionBox, p: '24px 28px', display: 'grid', gridTemplateColumns: 'repeat(2, minmax(260px, 1fr))', gap: 4, textAlign: 'left' }}>
+      <Box className="reveal-on-scroll" sx={{ ...sectionBox, p: { xs: '16px', sm: '20px', md: '24px 28px' }, display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(260px, 1fr))' }, gap: { xs: 2, md: 4 }, textAlign: 'left' }}>
         <Box>
-          <Typography variant="h6" sx={{ m: 0, mb: 1.5, fontSize: 24, fontWeight: 800, color: 'var(--accent-2)' }}>Goal:</Typography>
-          <Box component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95 }}>
+          <Typography variant="h6" sx={{ m: 0, mb: 1.5, fontSize: { xs: '18px', sm: '20px', md: '24px' }, fontWeight: 800, color: 'var(--accent-2)' }}>Goal:</Typography>
+          <Box component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95, fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
             <li>Build Third-Person Shooter with optimized multipliers for PC platforms. Creating and managing blueprints for game logic, programming C++ for core mechanics, designing animated characters and environments, and prepare game publication on Steam.</li>
           </Box>
         </Box>
         <Box>
-          <Typography variant="h6" sx={{ m: 0, mb: 1.5, fontSize: 24, fontWeight: 800, color: 'var(--accent-2)' }}>Project Details</Typography>
-          <Box component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95 }}>
+          <Typography variant="h6" sx={{ m: 0, mb: 1.5, fontSize: { xs: '18px', sm: '20px', md: '24px' }, fontWeight: 800, color: 'var(--accent-2)' }}>Project Details</Typography>
+          <Box component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95, fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
             <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Engine:</Box> Unreal Engine 5</li>
             <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Language:</Box> C++ and Blueprints</li>
             <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Duration:</Box> Building in progress, estimated time 5 months</li>
@@ -161,10 +165,10 @@ export default function SoloProjectPage() {
       </Box>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 1 }}>
+        <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 1, fontSize: { xs: '22px', sm: '26px', md: '32px' } }}>
           Project Timeline
         </Typography>
-        <Typography variant="body1" sx={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--muted)', mb: 3 }}>
+        <Typography variant="body1" sx={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--muted)', mb: 3, fontSize: { xs: '13px', sm: '15px', md: '16px' } }}>
           Click <Button
             href="https://github.com/users/thavon91/projects/1/views/1"
             target="_blank"
@@ -190,8 +194,8 @@ export default function SoloProjectPage() {
       </Box>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography variant="h5" sx={{ m: 0, mb: 1.5, fontSize: 28, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Assets Used: Free from Epic Games</Typography>
-        <Box component="ul" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'disc' }}>
+        <Typography variant="h5" sx={{ m: 0, mb: 1.5, fontSize: { xs: '20px', sm: '24px', md: '28px' }, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Assets Used: Free from Epic Games</Typography>
+        <Box component="ul" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'disc', fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
           {['Unreal Learning Kit Games (Asset Project)', 'Military Weapons Silver (Asset Pack)', 'Shooter Game (Asset Sound)'].map((item, i) => <li key={i}>{item}</li>)}
         </Box>
       </Box>
@@ -214,8 +218,8 @@ export default function SoloProjectPage() {
       </Modal>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography variant="h5" sx={{ m: 0, mb: 1.5, fontSize: 28, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Learning:</Typography>
-        <Box component="ol" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'decimal' }}>
+        <Typography variant="h5" sx={{ m: 0, mb: 1.5, fontSize: { xs: '20px', sm: '24px', md: '28px' }, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Learning:</Typography>
+        <Box component="ol" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'decimal', fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
           {learning.map((item, i) => <li key={i}>{item}</li>)}
         </Box>
       </Box>
