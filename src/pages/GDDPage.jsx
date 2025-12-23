@@ -191,7 +191,7 @@ export default function GDDPage() {
             <Section title="Genre:"><List items={['RPG action and 3D exploration']} /></Section>
             <Section title="The game:"><List items={['The Forsaken is set in a dark world where the player manages a character of adventurers in the style of Darkest Dungeon, fighting against the dark forces that plague the region']} /></Section>
             <Section title="Target Audience:"><List items={['Users between 18 and 45 years old']} /></Section>
-            <Section title="Platform:"><List items={['PC, the game is controlled with mouse and keyboard']} /></Section>
+            <Section title="Platform:"><List items={['PC, the game will support mouse and keyboard']} /></Section>
           </Box>
           <Box sx={{ flex: { xs: '1 1 auto', md: '0 0 42%' }, display: 'flex', flexDirection: 'column', gap: '20px', pt: '5px' }}>
             {[Conc1, Conc2].map((img, i) => <Img key={i} src={img} alt={`Concept ${i + 1}`} h={{ xs: '120px', sm: '140px', md: '165px' }} />)}
@@ -243,8 +243,8 @@ export default function GDDPage() {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '30px', position: 'relative', zIndex: 1 }}>
           {[
             { txt: 'Step into a dark fantasy world as a young huntress fighting to uncover the truth behind an ancient curse. Explore a world where every ability, attribute, and combat choice is powered by a deep, expandable gameplay framework. Master spellcasting, melee combat, and character progression built on a foundation of precision, strategy, and integrated RPG mechanics.', img: Desc1, w: '48%', w2: '49%', align: 'flex-start', mt: '15px' },
-            { txt: 'Build character through a detailed stats system that shapes damage, defense, critical hits, health, mana, and every layer of combat. Unlock powerful spells, passive abilities, and multipath upgrades. Face enemies with advanced AI, from goblins and demons to corrupted beasts that adapt and react.', img: Desc2, w: '46%', imgFirst: true, align: 'center' },
-            { txt: 'Crafted with a blend of C++ and Blueprint engineering, the game features responsive controls, impactful abilities, dynamic combat feedback, and a scalable codebase inspired by tier RPG design.', img: Desc3, w2: '49%', align: 'center' }
+            { txt: 'Build character through a detailed stats system that shapes damage, defense, critical hits, health, mana, and every layer of combat. Unlock powerful spells, passive abilities, and multipath upgrades. Face enemies with advanced AI, from goblins and demons to corrupted beasts that adapt and react.', img: Desc3, w: '46%', imgFirst: true, align: 'center' },
+            { txt: 'The game is designed using a combination of C++ and Blueprints to feature responsive controls, impactful abilities, dynamic combat feedback, and a scalable codebase inspired by tiered RPG design.', img: Desc2, w2: '49%', align: 'center' }
           ].map((item, i) => (
             <Box key={i} sx={{ display: 'flex', gap: '28px', alignItems: item.align }}>
               {item.imgFirst && <Img src={item.img} alt={`Desc ${i + 1}`} w={item.w} />}
@@ -418,7 +418,7 @@ export default function GDDPage() {
         <Title>Levels</Title>
         <Box sx={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {[
-            'This level takes full advantage of the modular dungeon to be included in the project. The player enters the Sunken Shrine, a forgotten temple constructed from ancient stone blocks and broken obelisks. The dungeon is designed to teach players how to combine movement, abilities, and resource management through Unreal\'s Gameplay Ability System.',
+            'This level is designed to take full advantage of the modular dungeon system planned for inclusion in the project. The player enters the Shrine, a forgotten temple constructed from ancient stone blocks and broken obelisks. The dungeon is designed to teach players how to combine movement, abilities, and resource management through Unreal\'s Gameplay Ability System.',
             'The level begins in a quiet antechamber where players interact with highlighted objects, learning how ability targeting and item selection. As they progress deeper, they encounter the first enemy: Goblin Warriors with reactive AI. Gameplay unfolds through basic combat and direct damage.'
           ].map((t, i) => <Txt key={i} j>{t}</Txt>)}
           <Box>
