@@ -4,14 +4,12 @@ import facebookIcon from "../assets/Facebook.svg";
 import whatsappIcon from "../assets/WhatsApp.svg";
 import githubIcon from "../assets/github.svg";
 import netlifyIcon from "../assets/Netlify.svg";
-import flyIcon from "../assets/Fly.svg";
 
 const socialLinks = [
   { src: linkedinIcon, href: 'https://www.linkedin.com/in/hei-thon-2051b3274', alt: 'Linkedin' },
   { src: facebookIcon, href: 'https://www.facebook.com/share/1HXBTVNyrx/', alt: 'Facebook' },
   { src: githubIcon, href: 'https://github.com/thavon91', alt: 'GitHub' },
-  { src: netlifyIcon, href: 'https://thavon91.netlify.app/', alt: 'Netlify' },
-  { src: flyIcon, href: 'https://goheihei.fly.dev/', alt: 'Fly' }
+  { src: netlifyIcon, href: 'https://thavon91.netlify.app/', alt: 'Netlify' }
 ];
 
 export default function SocialIcons({ size = 80, className = '' }) {
