@@ -9,7 +9,7 @@ import dockerIcon from "../assets/icons/docker.png";
 import jiraIcon from "../assets/icons/jira.png";
 import unrealIcon from "../assets/icons/unreal.png";
 import gdevelopIcon from "../assets/icons/GD.png";
-import photopeaIcon from "../assets/icons/photopea.png";
+import fleetdmIcon from "../assets/icons/fleetdm.png";
 import ZbrushIcon from "../assets/icons/Zbrush.png";
 import BlenderIcon from "../assets/icons/Blender.png";
 import MobileGameIcon from "../assets/icons/MobileGame.png";
@@ -24,7 +24,7 @@ const softwareIcons = [
   { src: jiraIcon, alt: "Jira", href: "https://www.atlassian.com/software/jira" },
   { src: unrealIcon, alt: "Unreal Engine", href: "https://www.unrealengine.com/" },
   { src: gdevelopIcon, alt: "GDevelop", href: "https://gdevelop.io/" },
-  { src: photopeaIcon, alt: "Photopea", href: "https://www.photopea.com/" },
+  { src: fleetdmIcon, alt: "FleetDM", href: "https://fleetdm.com/" },
   { src: dockerIcon, alt: "Docker", href: "https://www.docker.com/" }
 ];
 
