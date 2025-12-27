@@ -163,7 +163,7 @@ export default function GDDPage() {
           </Box>
           <Box className="reveal-on-scroll">
             <Typography sx={{ color: '#c9a961', fontWeight: 600, letterSpacing: '2px', fontSize: 'clamp(0.85rem,2vw,1rem)', mb: 1 }}>VERSION # 1.00</Typography>
-            <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(0.95rem,2vw,0.95rem)', mb: 2 }}>Monday, November 24, 2025</Typography>
+            <Typography sx={{ color: '#c9a961', fontWeight: 300, fontSize: 'clamp(0.95rem,2vw,0.95rem)', mb: 2 }}>November 24 - December 21, 2025</Typography>
             <Button className="no-print" onClick={handleExportPDF} sx={{ mt: 1, px: { xs: 2, sm: 3, md: 4 }, py: { xs: 1.5, md: 2 }, background: 'linear-gradient(135deg,#c9a961,#a68860)', color: '#2a2420', fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' }, borderRadius: '8px', boxShadow: '0 6px 20px rgba(201,169,97,.3), inset 0 1px 0 rgba(255,255,255,.15)', '&:hover': { background: 'linear-gradient(135deg,#d4b370,#b39370)', transform: 'translateY(-2px)', boxShadow: '0 10px 28px rgba(201,169,97,.4)' } }}>EXPORT GDD TO PDF</Button>
           </Box>
           <Box className="no-print" sx={{ position: 'relative', zIndex: 1, mt: 2, pt: 2, borderTop: '1px solid rgba(201,169,97,0.3)', width: '100%', maxWidth: '500px' }}>
