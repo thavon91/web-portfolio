@@ -36,7 +36,7 @@ const pursuits = [
   { title: "Learn Unreal Engine 5 creating an ARPG Game from Scratch", href: "https://www.udemy.com/course/unreal-engine-5-creating-an-arpg-game-from-scratch/?couponCode=KEEPLEARNING", bg: ARPGIcon },
   { title: "Unreal Engine 5 Co-op Multiplayer Game For Intermediate", href: "https://www.udemy.com/course/unreal-engine-5-co-op-multiplayer-game-for-intermidate/?couponCode=KEEPLEARNING", bg: UE5CoOp },
   { title: "Virtual Engine", href: "https://www.unrealengine.com/", bg: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=400&h=300&fit=crop" },
-  { title: "WebGL", href: "https://www.khronos.org/webgl/", bg: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop" },
+  { title: "WebGL/WebGPU", href: "https://www.khronos.org/", bg: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop" },
   { title: "Web3", href: "https://web3.foundation/", bg: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop" },
   { title: "Blockchain", href: "https://www.blockchain.com/", bg: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=300&fit=crop" },
   { title: "Payment Gateway", href: "https://stripe.com/", bg: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop" },
