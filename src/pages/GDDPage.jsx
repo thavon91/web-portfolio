@@ -452,7 +452,7 @@ export default function GDDPage() {
       <Page bg={BackgroundF}>
         <Title sx={{ fontSize: '4.5rem', mb: '20px' }}>Tools and Spaces Needs</Title>
         <Box sx={{ position: 'relative', zIndex: 1 }}>
-          <List items={['Office space and Equipment', 'Computers and Software licences', 'Unreal Engine and Blueprint', 'C++, .Net Framework, DirectX, 3D Math, 3D Physics', 'Visual Studio, Visual Studio Code, Cursor, or Others', 'Github, Gitlab, Drive, and ...', 'Discord', 'Blender, Autodesk 3ds Max, ZBrush, Autodesk Maya, Substance Painter, 3D Studio Max', 'FMOD, Wwise']} sx={{ lineHeight: 1.55 }} />
+          <List items={['Office space and Equipment', 'Computers and Software licences', 'Unreal Engine and Blueprint', 'C++, .Net Framework, DirectX, 3D Math, 3D Physics', 'Visual Studio or Visual Studio Code', 'Github, Gitlab, Drive, and ...', 'Discord', 'Blender and ZBrush', 'FMOD, Wwise']} sx={{ lineHeight: 1.55 }} />
         </Box>
         <Title sx={{ fontSize: '4.5rem', mb: '20px', mt: '35px' }}>Team and Skills Needs</Title>
         <Box sx={{ position: 'relative', zIndex: 1 }}>
