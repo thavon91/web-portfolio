@@ -6,7 +6,7 @@ import githubIcon from "../assets/github.svg";
 import netlifyIcon from "../assets/Netlify.svg";
 
 const socialLinks = [
-  { src: linkedinIcon, href: 'https://www.linkedin.com/in/hei-thon-2051b3274', alt: 'Linkedin' },
+  { src: linkedinIcon, href: 'https://www.linkedin.com/in/hei-thavon-2051b3274/', alt: 'Linkedin' },
   { src: facebookIcon, href: 'https://www.facebook.com/share/1HXBTVNyrx/', alt: 'Facebook' },
   { src: githubIcon, href: 'https://github.com/thavon91', alt: 'GitHub' },
   { src: netlifyIcon, href: 'https://thavon91.netlify.app/', alt: 'Netlify' }
