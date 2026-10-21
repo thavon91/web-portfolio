@@ -50,12 +50,13 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <div className="menu">
         <div className="topbar">
+          <a className="brand" href="#home">MY PORT<span>FOLIO</span></a>
           <div className="topbar-center">
             <a href="#home">
               <button
                 className={`nav-button ${activePage === "home" ? "active" : ""}`}
                 onClick={() => setActivePage("home")}>
-                H.T
+                Home
               </button>
             </a>
             <a href="#SoloProject">

@@ -1,99 +1,96 @@
-import { Box, Typography, Button, Grid } from '@mui/material';
-import profile1Img from "../assets/profile1.png";
-import SocialIcons from "../components/SocialIcons";
-import resumePdf from "../assets/pdf/Thavon_Resume.pdf";
-import reactjsIcon from "../assets/icons/reactjs.png";
-import githubIcon from "../assets/icons/github.png";
-import gitlabIcon from "../assets/icons/gitlab.png";
-import dockerIcon from "../assets/icons/docker.png";
-import jiraIcon from "../assets/icons/jira.png";
-import unrealIcon from "../assets/icons/unreal.png";
-import gdevelopIcon from "../assets/icons/GD.png";
-import fleetdmIcon from "../assets/icons/fleetdm.png";
-import ZbrushIcon from "../assets/icons/Zbrush.png";
-import BlenderIcon from "../assets/icons/Blender.png";
-import MobileGameIcon from "../assets/icons/MobileGame.png";
-import RPGMobileGameIcon from "../assets/icons/RPGMobileGame.png";
-import ARPGIcon from "../assets/icons/ARPG.png";
-import UE5CoOp from "../assets/icons/UE5 Co-Op.png";
+import resumePdf from '../assets/pdf/Thavon_Resume.pdf';
 
-const softwareIcons = [
-  { src: githubIcon, alt: "Github", href: "https://github.com/" },
-  { src: gitlabIcon, alt: "Gitlab", href: "https://gitlab.com/" },
-  { src: reactjsIcon, alt: "Reactjs", href: "https://react.dev/" },
-  { src: jiraIcon, alt: "Jira", href: "https://www.atlassian.com/software/jira" },
-  { src: unrealIcon, alt: "Unreal Engine", href: "https://www.unrealengine.com/" },
-  { src: gdevelopIcon, alt: "GDevelop", href: "https://gdevelop.io/" },
-  { src: fleetdmIcon, alt: "FleetDM", href: "https://fleetdm.com/" },
-  { src: dockerIcon, alt: "Docker", href: "https://www.docker.com/" }
+const focuses = [
+  { icon: 'gamepad', title: 'GAME DESIGN', text: 'Game mechanics,\nlevel design, systems', tone: 'red' },
+  { icon: 'programming', title: 'PROGRAMMING', text: 'Unreal Engine, C++,\nBlueprints, JavaScript, Three.js', tone: 'blue' },
+  { icon: 'palette', title: '3D ART', text: 'Blender, 3D modeling,\ntexturing', tone: 'red' },
+  { icon: 'team', title: 'GAME PRODUCTION', text: 'Project management,\nteamwork, game business', tone: 'blue' },
+];
+const hobbies = [
+  { icon: 'movie', title: 'Watch Movies & Documentaries', text: 'Inspired by great stories and creative ideas', tone: 'red' },
+  { icon: 'gamepad', title: 'Play Games', text: 'RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, Racing', tone: 'blue' },
+  { icon: 'palette', title: '2D/3D Art', text: 'Drawing, 3D sculpting, improving art skills', tone: 'red' },
+  { icon: 'code', title: 'Learn New Tech', text: 'Game engines, tools, AI, and programming.\nAttending GDC and gaming events (online/offline)', tone: 'blue' },
+  { icon: 'music', title: 'Listen to Music', text: 'Game soundtracks, various genres', tone: 'red' },
+  { icon: 'nature', title: 'Explore Nature', text: 'Road trips, concerts, and new places', tone: 'blue' },
 ];
 
-const pursuits = [
-  { title: "Learn Crimson Ronin in Zbrush and Blender", href: "https://www.p2design-academy.com/p/crimson-ronin", bg: ZbrushIcon },
-  { title: "Learn Alive! Animation course in Blender", href: "https://www.p2design-academy.com/p/alive-animation-course-in-blender", bg: BlenderIcon },
-  { title: "Learn Unreal Engine 5 Mobile Game Development For Beginners", href: "https://www.udemy.com/course/creating-android-games-in-unreal-engine-5-using-blueprint/?couponCode=KEEPLEARNING", bg: MobileGameIcon },
-  { title: "Learn Unreal Engine 5 Create RPG Mobile Game For Play Store", href: "https://www.udemy.com/course/unreal-engine-5-create-rpg-mobile-game-for-play-store/?couponCode=KEEPLEARNING", bg: RPGMobileGameIcon },
-  { title: "Learn Unreal Engine 5 creating an ARPG Game from Scratch", href: "https://www.udemy.com/course/unreal-engine-5-creating-an-arpg-game-from-scratch/?couponCode=KEEPLEARNING", bg: ARPGIcon },
-  { title: "Unreal Engine 5 Co-op Multiplayer Game For Intermediate", href: "https://www.udemy.com/course/unreal-engine-5-co-op-multiplayer-game-for-intermidate/?couponCode=KEEPLEARNING", bg: UE5CoOp },
-  { title: "Virtual Engine", href: "https://www.unrealengine.com/", bg: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?w=400&h=300&fit=crop" },
-  { title: "WebGL/WebGPU", href: "https://www.khronos.org/", bg: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop" },
-  { title: "Web3", href: "https://web3.foundation/", bg: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&h=300&fit=crop" },
-  { title: "Blockchain", href: "https://www.blockchain.com/", bg: "https://images.unsplash.com/photo-1639322537228-f710d846310a?w=400&h=300&fit=crop" },
-  { title: "Payment Gateway", href: "https://stripe.com/", bg: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop" },
-  { title: "Cryptocurrency", href: "https://www.coinbase.com/learn", bg: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=400&h=300&fit=crop" }
-];
+function HobbyIcon({ name }) {
+  const paths = {
+    movie: 'M3 7h18v14H3z M3 7l2-4h4L7 7m2 0 2-4h4l-2 4m2 0 2-4h4l-2 4 M9 11v6l5-3z',
+    gamepad: 'M7 8h10a4 4 0 0 1 3.8 2.8l1.1 4a2.5 2.5 0 0 1-4.2 2.4L15.5 15h-7l-2.2 2.2a2.5 2.5 0 0 1-4.2-2.4l1.1-4A4 4 0 0 1 7 8Z M8 10v4m-2-2h4m7-1h.01M18 13h.01',
+    palette: 'M12 3a9 9 0 1 0 0 18h1.4a2 2 0 0 0 1.5-3.3 1.7 1.7 0 0 1 1.3-2.8H19a2 2 0 0 0 2-2A10 10 0 0 0 12 3Z M7.5 10h.01M10 7h.01M15 7.5h.01M17 11h.01',
+    code: 'M3 4h18v12H3z M1.5 20h21 M8 8l-2 2 2 2m8-4 2 2-2 2m-3-5-2 6',
+    music: 'M9 18V5l12-2v13 M9 18a3 2 0 1 1-3-2 3 2 0 0 1 3 2Zm12-2a3 2 0 1 1-3-2 3 2 0 0 1 3 2Z',
+    nature: 'M3 20 10 8l7 12H3Zm10 0 3-5 5 5h-8ZM19 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM17 1v1m0 6v1m4-4h-1m-6 0h-1',
+  };
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      focusable="false"
+      className="hobby-svg"
+    >
+      <path d={paths[name]} />
+    </svg>
+  );
+}
 
-const cardStyle = { width: '100%', height: { xs: 120, sm: 150, md: 180 }, position: 'relative', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 8px 20px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08)', transition: 'all .3s ease', textDecoration: 'none', backgroundColor: '#3a3530', border: '2px solid #8b7765', '&:hover': { transform: 'translateY(-8px)', boxShadow: '0 16px 40px rgba(201,169,97,.4), inset 0 1px 0 rgba(255,255,255,.08)', borderColor: 'var(--accent)' } };
+function FocusIcon({ name }) {
+  return (
+    <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false" className="focus-svg">
+      {name === 'gamepad' && (
+        <>
+          <path d="M13 14h22a9 9 0 0 1 8.7 6.7l2.1 8.1a5.3 5.3 0 0 1-8.9 5l-5-4.8H16.1l-5 4.8a5.3 5.3 0 0 1-8.9-5l2.1-8.1A9 9 0 0 1 13 14Z" fill="currentColor" />
+          <path d="M15 20v8m-4-4h8" fill="none" stroke="#071426" strokeWidth="3" strokeLinecap="round" />
+          <circle cx="34" cy="22" r="2" fill="#071426" />
+          <circle cx="39" cy="27" r="2" fill="#071426" />
+        </>
+      )}
+      {name === 'programming' && (
+        <>
+          <path d="M7 7h34v25H7zM17 41h14M24 32v9" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinejoin="round" />
+          <path d="m21 15-5 4 5 4m6-8 5 4-5 4m-2-10-3 12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        </>
+      )}
+      {name === 'palette' && (
+        <>
+          <path d="M24 4C12.4 4 4 12 4 22.5 4 33.8 13.1 43 24.5 43H29a5 5 0 0 0 3.6-8.5 3 3 0 0 1 2.1-5.1H39a5 5 0 0 0 5-5C44 13 35.3 4 24 4Z" fill="currentColor" />
+          <circle cx="15" cy="19" r="2.2" fill="#071426" />
+          <circle cx="20" cy="13" r="2.2" fill="#071426" />
+          <circle cx="28" cy="13" r="2.2" fill="#071426" />
+          <circle cx="34" cy="19" r="2.2" fill="#071426" />
+        </>
+      )}
+      {name === 'team' && (
+        <>
+          <circle cx="24" cy="14" r="6" fill="currentColor" />
+          <circle cx="10" cy="18" r="5" fill="currentColor" />
+          <circle cx="38" cy="18" r="5" fill="currentColor" />
+          <path d="M12 38v-4a12 12 0 0 1 24 0v4H12Zm-10-1v-3a9 9 0 0 1 7-8.7 10 10 0 0 1 5.3 1.2A14 14 0 0 0 10 36v1H2Zm34 0v-1a14 14 0 0 0-4.3-10.5 10 10 0 0 1 5.3-1.2 9 9 0 0 1 7 8.7v3h-8Z" fill="currentColor" />
+        </>
+      )}
+    </svg>
+  );
+}
 
 export default function AboutPage() {
   return (
-    <Box maxWidth="lg" className="page-switch" sx={{ mx: 'auto', px: { xs: 1, sm: 2, md: 2.5 }, boxSizing: 'border-box', mt: { xs: 0, md: 1 } }}>
-      <Box sx={{ py: { xs: '20px', sm: '30px', md: '35px' }, textAlign: 'center' }}>
-        <Typography className="reveal-on-scroll" variant="h3" sx={{ fontWeight: 'bold', mb: { xs: 2, sm: 3, md: 5 }, color: 'var(--accent-2)', fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' } }}>About Me</Typography>
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', gap: { xs: 2, sm: 3, md: 5 }, lineHeight: 1.4 }}>
-          <Box sx={{ flex: '1 1 300px', textAlign: 'center' }}>
-            <Box component="img" src={profile1Img} alt="Profile" className="reveal-on-scroll" sx={{ width: { xs: '180px', sm: '220px', md: '260px' }, height: { xs: '180px', sm: '220px', md: '260px' }, borderRadius: '8px', boxShadow: '0 14px 34px rgba(0,0,0,0.65), inset 0 1px 0 rgba(255,255,255,.1)', border: '3px solid #8b7765', objectFit: 'cover', filter: 'sepia(0.15)' }} />
-            <Typography className="reveal-on-scroll" sx={{ fontStyle: 'italic', mt: 1.25, mb: 2.5, color: 'var(--accent)', fontSize: { xs: '1rem', sm: '1.2rem', md: '1.4rem' }, fontWeight: 500 }}>"Bringing exceptional moments to life"</Typography>
-            <SocialIcons className="reveal-on-scroll" size={35} />
-          </Box>
-          <Box sx={{ flex: '1 1 300px', textAlign: 'left' }}>
-            <Typography className="reveal-on-scroll" variant="h6" sx={{ fontWeight: 'bold', mb: 2, color: 'var(--accent)', fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.8rem' }, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Hobbies</Typography>
-            <Box component="ul" className="reveal-on-scroll" sx={{ listStyle: 'disc', ml: 2.5, mb: 4, color: '#d4c5b9', lineHeight: 1.6, fontSize: { xs: '0.9rem', sm: '1.1rem', md: '1.3rem' }, '& li': { marginBottom: '0.6em' } }}>
-              {['Addict documentaries, movies, animations, performances, songs, music, tech, GDC festival of gaming, awards, sports, and e-sports.',
-                'Watch Gameplay walkthrough: RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, and Racing.',
-                'Upgrade old skills: 2d drawing, 3d sculpting, and Programming.',
-                'Goal obtain in 3 year: Complete English level testing; Perceive Unreal Engine 5-create RPG mobile, multiplayer shooter PC with C++, and multiplsyer RPG PC games.',
-                'Do road trips, go to concerts, and explore nature.'].map((item, i) => <li key={i}>{item}</li>)}
-            </Box>
-            <Button component="a" href={resumePdf} target="_blank" rel="noopener noreferrer" className="reveal-on-scroll" sx={{ mt: 2, px: { xs: 2, md: 3 }, py: { xs: 1, md: 1.5 }, background: 'linear-gradient(135deg, #c9a961, #a68860)', color: '#2a2420', fontWeight: 'bold', fontSize: { xs: '14px', md: '16px' }, boxShadow: '0 6px 20px rgba(201, 169, 97, .3), inset 0 1px 0 rgba(255,255,255,.15)', '&:hover': { background: 'linear-gradient(135deg, #d4b370, #b39370)', transform: 'translateY(-2px)', boxShadow: '0 10px 28px rgba(201, 169, 97, .4)' } }}>RESUME</Button>
-          </Box>
-        </Box>
-      </Box>
-
-      <Box component="section" sx={{ py: { xs: '30px', sm: '45px', md: '60px' }, textAlign: 'center' }}>
-        <Typography className="reveal-on-scroll" variant="h4" sx={{ fontWeight: 800, color: 'var(--accent)', mb: { xs: 2, sm: 3, md: 5 }, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: { xs: '1.5rem', sm: '2rem', md: '2.8rem' } }}>Junior Software Proficiency</Typography>
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 100px)', sm: 'repeat(3, 120px)', md: 'repeat(4, 150px)' }, gap: { xs: 1.5, sm: 2, md: 2.5 }, maxWidth: 1000, margin: '0 auto', justifyContent: 'center' }}>
-          {softwareIcons.map((it, i) => (
-            <Box key={i} component="a" href={it.href} target="_blank" rel="noopener noreferrer" className="reveal-on-scroll" sx={{ width: { xs: 100, sm: 120, md: 150 }, height: { xs: 100, sm: 120, md: 150 }, background: 'linear-gradient(180deg, rgba(139, 119, 101, .15), rgba(139, 119, 101, .08))', borderRadius: '8px', display: 'grid', placeItems: 'center', boxShadow: '0 6px 14px rgba(0,0,0,.45), inset 0 1px 1px rgba(255,255,255,.08)', border: '1px solid rgba(201,169,97,.15)', transition: 'all .2s ease', textDecoration: 'none', '&:hover': { transform: 'translateY(-6px)', boxShadow: '0 12px 22px rgba(0,0,0,.55), inset 0 1px 1px rgba(255,255,255,.1)', borderColor: 'var(--accent)' } }}>
-              <Box component="img" src={it.src} alt={it.alt} loading="lazy" sx={{ width: '85%', height: '85%', objectFit: 'contain', opacity: 0.9 }} />
-            </Box>
-          ))}
-        </Box>
-      </Box>
-
-      <Box component="section" sx={{ py: { xs: '30px', sm: '45px', md: '60px' }, textAlign: 'center' }}>
-        <Typography className="reveal-on-scroll" variant="h4" sx={{ fontWeight: 800, color: 'var(--accent)', mb: { xs: 2, sm: 3, md: 5 }, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: { xs: '1.5rem', sm: '2rem', md: '2.8rem' } }}>Other Pursuits</Typography>
-        <Box sx={{ display: 'grid', gridTemplateColumns: { xs: 'repeat(2, 1fr)', sm: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }, gap: { xs: 1.5, sm: 2, md: 2.5 }, maxWidth: 1100, m: '0 auto' }}>
-          {pursuits.map((card, i) => (
-            <Box key={i} component="a" href={card.href} target="_blank" rel="noopener noreferrer" className="reveal-on-scroll" sx={cardStyle}>
-              {card.bg && <Box component="img" src={card.bg} alt={card.title} sx={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
-              <Box sx={{ position: 'absolute', inset: 0, background: card.bg ? 'linear-gradient(180deg, rgba(0,0,0,.4), rgba(0,0,0,.75))' : 'linear-gradient(135deg, rgba(139, 119, 101, .3), rgba(139, 119, 101, .1))', display: 'flex', alignItems: 'center', justifyContent: 'center', p: { xs: 1, sm: 1.5, md: 2 } }}>
-                <Typography sx={{ textAlign: 'center', color: '#c9a961', fontWeight: 800, fontSize: { xs: '12px', sm: '14px', md: '18px' }, lineHeight: 1.3, textShadow: '0 2px 10px rgba(0,0,0,.9)' }}>{card.title}</Typography>
-              </Box>
-            </Box>
-          ))}
-        </Box>
-      </Box>
-    </Box>
+    <main className="about-screen page-switch">
+      <section className="about-copy reveal-on-scroll">
+        <div className="eyebrow"><span>GET TO KNOW ME</span></div>
+        <h1 className="mega-title"><span>ABOUT</span> <em>ME</em></h1>
+        <div className="title-trails"><i /><i /><i /></div>
+        <p className="about-intro">I’m a <strong>game developer</strong> and <strong>game designer</strong> who loves creating<b> interactive experiences</b>, learning new technologies, and turning ideas into games. I enjoy both the creative and technical sides of game development, from design and art to programming and production.</p>
+        <div className="section-rule" />
+        <h2 className="sub-title">MY <span>FOCUS</span></h2>
+        <div className="focus-grid">{focuses.map((item) => <article className={`focus-item ${item.tone}`} key={item.title}><div className="focus-icon"><FocusIcon name={item.icon} /></div><h3 className={item.icon === 'team' ? 'production-title' : undefined}>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      </section>
+      <aside className="hobbies-panel reveal-on-scroll">
+        <h2><span className="hobby-heading-icon"><HobbyIcon name="gamepad" /></span> <b>HOB</b>BIES</h2>
+        <div className="hobby-list">{hobbies.map((item) => <div className="hobby" key={item.title}><div className={`hobby-icon ${item.tone}`}><HobbyIcon name={item.icon} /></div><div><h3>{item.title}</h3><p>{item.text}</p></div></div>)}</div>
+      </aside>
+      <a className="resume-cta" href={resumePdf} target="_blank" rel="noreferrer"><span>▤</span> RESUME <b>→</b></a>
+    </main>
   );
 }

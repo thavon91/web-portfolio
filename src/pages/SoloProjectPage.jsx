@@ -32,9 +32,9 @@ const sectionBox = {
   p: { xs: '16px', sm: '20px', md: '28px 32px 48px' },
   borderRadius: '12px',
   color: 'var(--text)',
-  background: 'linear-gradient(180deg, rgba(139, 119, 101, .1), rgba(139, 119, 101, .05))',
-  border: '1px solid rgba(201, 169, 97, .15)',
-  boxShadow: '0 18px 40px rgba(0,0,0,.45), inset 0 1px 1px rgba(255,255,255,.08)',
+  background: 'linear-gradient(180deg, rgba(5, 20, 39, .1), rgba(5, 20, 39, .05))',
+  border: '1px solid rgba(255, 21, 49, .15)',
+  boxShadow: '0 18px 40px rgba(2,9,20,.45), inset 0 1px 1px rgba(255,255,255,.08)',
   boxSizing: 'border-box'
 };
 
@@ -49,7 +49,7 @@ const navButtonStyle = (position) => ({
   alignItems: 'center',
   justifyContent: 'center',
   color: 'white',
-  bgcolor: 'rgba(40, 40, 40, 0.6)',
+  bgcolor: 'rgba(8, 25, 51, 0.8)',
   border: '1px solid rgba(255, 255, 255, 0.15)',
   borderRadius: '4px',
   cursor: 'pointer',
@@ -58,7 +58,7 @@ const navButtonStyle = (position) => ({
   zIndex: 10,
   transition: 'all 0.3s ease',
   '&:hover': {
-    bgcolor: 'rgba(60, 60, 60, 0.85)',
+    bgcolor: 'rgba(10, 44, 86, 0.9)',
     transform: 'translateY(-50%) scale(1.1)',
     borderColor: 'rgba(255, 255, 255, 0.3)'
   }
@@ -81,7 +81,7 @@ const learning = [
 
 const GallerySection = ({ title, onClick, subtitle, items }) => (
   <Box className="reveal-on-scroll" sx={sectionBox}>
-    <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 1, fontSize: { xs: '22px', sm: '26px', md: '32px' } }}>
+    <Typography variant="h4" sx={{ textAlign: 'center', color: 'var(--accent)', fontWeight: 1000, mb: 1, fontSize: { xs: '22px', sm: '26px', md: '32px' } }}>
       {title}
     </Typography>
     {subtitle && (
@@ -134,46 +134,47 @@ export default function SoloProjectPage() {
   };
 
   return (
-    <Box className="page-switch" sx={{ maxWidth: 900, mx: 'auto', mt: { xs: 0, md: '8px' }, p: { xs: '8px', sm: '15px', md: '35px' }, boxSizing: 'border-box' }}>
+    <Box className="page-switch solo-project-page" sx={{ maxWidth: 900, mx: 'auto', mt: { xs: 0, md: '8px' }, p: { xs: '8px', sm: '15px', md: '35px' }, boxSizing: 'border-box' }}>
       <Box className="reveal-on-scroll" sx={{ ...sectionBox, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <Typography className="reveal-on-scroll" variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 2, fontSize: { xs: '24px', sm: '28px', md: '32px' } }}>TPS Multiplayer Game</Typography>
+        <Typography className="reveal-on-scroll" variant="h4" sx={{ textAlign: 'center', color: 'var(--accent)', fontWeight: 1000, mb: 2, fontSize: { xs: '24px', sm: '28px', md: '32px' } }}>TPS Multiplayer Game</Typography>
         <Typography className="reveal-on-scroll" sx={{ textAlign: 'center', textIndent: { xs: '0', md: '50px' }, lineHeight: 1.5, mb: 3, fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
           PC game development: multiplayer shooter in the powerful Unreal Engine 5 using C++. This project is my aspiring shooting game, which I am passionate about creating and joining game sessions using C++ programming and connecting many players across the internet. I am eager to bring my game ideas to life and dive into the gaming studio.
         </Typography>
         <Box className="reveal-on-scroll" component="img" src={demo1} alt="TPS Multiplayer Game" width="100%" sx={{ aspectRatio: '16 / 9', borderRadius: '8px', objectFit: 'cover' }} />
-        <Button className="reveal-on-scroll" disabled sx={{ mt: 2, px: 2.5, py: 1.25, background: 'linear-gradient(135deg, #c9a961, #a68860)', color: 'white', fontWeight: 'bold', borderRadius: '8px', textTransform: 'none', boxShadow: '0 6px 16px rgba(201, 169, 97, .25)', '&:hover': { background: 'linear-gradient(135deg, #d4b370, #b39370)', transform: 'translateY(-2px)' } }}>
+        <Button className="reveal-on-scroll" disabled sx={{ mt: 2, px: 2.5, py: 1.25, background: 'linear-gradient(135deg, #ff1531, #bc0019)', color: 'white', fontWeight: 'bold', borderRadius: '8px', textTransform: 'none', boxShadow: '0 6px 16px rgba(255, 21, 49, .25)', '&:hover': { background: 'linear-gradient(135deg, #ff1531, #bc0019)', transform: 'translateY(-2px)' } }}>
           📂 Coming soon
         </Button>
       </Box>
 
       <Box className="reveal-on-scroll" sx={{ ...sectionBox, p: { xs: '16px', sm: '20px', md: '24px 28px' }, display: 'grid', gridTemplateColumns: { xs: '1fr', md: 'repeat(2, minmax(260px, 1fr))' }, gap: { xs: 2, md: 4 }, textAlign: 'left' }}>
         <Box>
-          <Typography className="reveal-on-scroll" variant="h6" sx={{ m: 0, mb: 1.5, fontSize: { xs: '18px', sm: '20px', md: '24px' }, fontWeight: 800, color: 'var(--accent-2)' }}>Goal:</Typography>
+          <Typography className="reveal-on-scroll" variant="h6" sx={{ m: 0, mb: 1.5, fontSize: { xs: '18px', sm: '20px', md: '24px' }, fontWeight: 800, color: 'var(--accent)' }}>Goal:</Typography>
           <Box className="reveal-on-scroll" component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95, fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
             <li>Build Third-Person Shooter with optimized multipliers for PC platforms. Creating and managing blueprints for game logic, programming C++ for core mechanics, designing animated characters and environments, and prepare game publication on Steam.</li>
           </Box>
         </Box>
         <Box>
-          <Typography className="reveal-on-scroll" variant="h6" sx={{ m: 0, mb: 1.5, fontSize: { xs: '18px', sm: '20px', md: '24px' }, fontWeight: 800, color: 'var(--accent-2)' }}>Project Details</Typography>
+          <Typography className="reveal-on-scroll" variant="h6" sx={{ m: 0, mb: 1.5, fontSize: { xs: '18px', sm: '20px', md: '24px' }, fontWeight: 800, color: 'var(--accent)' }}>Project Details</Typography>
           <Box className="reveal-on-scroll" component="ul" sx={{ m: 0, pl: '1.5rem', lineHeight: 1.7, listStyle: 'disc', opacity: 0.95, fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
-            <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Engine:</Box> Unreal Engine 5</li>
-            <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Language:</Box> C++ and Blueprints</li>
-            <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Duration:</Box> Building in progress, estimated time 5 months</li>
-            <li><Box component="span" sx={{ color: 'var(--accent-2)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Team Size:</Box> Solo project</li>
+            <li><Box component="span" sx={{ color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Engine:</Box> Unreal Engine 5</li>
+            <li><Box component="span" sx={{ color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Language:</Box> C++ and Blueprints</li>
+            <li><Box component="span" sx={{ color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Duration:</Box> Building in progress, estimated time 5 months</li>
+            <li><Box component="span" sx={{ color: 'var(--accent)', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '.02em' }}>Team Size:</Box> Solo project</li>
           </Box>
         </Box>
       </Box>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography className="reveal-on-scroll" variant="h4" sx={{ textAlign: 'center', color: 'var(--accent-2)', fontWeight: 1000, mb: 1, fontSize: { xs: '22px', sm: '26px', md: '32px' } }}>
+        <Typography className="reveal-on-scroll" variant="h4" sx={{ textAlign: 'center', color: 'var(--accent)', fontWeight: 1000, mb: 1, fontSize: { xs: '22px', sm: '26px', md: '32px' } }}>
           Project Timeline
         </Typography>
         <Typography className="reveal-on-scroll" variant="body1" sx={{ textAlign: 'center', fontStyle: 'italic', color: 'var(--muted)', mb: 3, fontSize: { xs: '13px', sm: '15px', md: '16px' } }}>
           Click <Button
+            className="roadmap-link"
             href="https://github.com/users/thavon91/projects/1/views/1"
             target="_blank"
             rel="noopener noreferrer"
-            sx={{ px: 1, py: 0.1, background: 'linear-gradient(135deg, #c9a961, #a68860)', color: 'white', fontWeight: 'bold', borderRadius: '6px', textTransform: 'none', fontSize: 'inherit', fontStyle: 'normal', minWidth: 'auto', boxShadow: '0 4px 12px rgba(201, 169, 97, .2)', '&:hover': { background: 'linear-gradient(135deg, #d4b370, #b39370)' } }}
+            sx={{ px: 1, py: 0.1, background: 'linear-gradient(135deg, #ff1531, #bc0019)', color: 'white', fontWeight: 'bold', borderRadius: '6px', textTransform: 'none', fontSize: 'inherit', fontStyle: 'normal', minWidth: 'auto', boxShadow: '0 4px 12px rgba(255, 21, 49, .2)', '&:hover': { background: 'linear-gradient(135deg, #ff1531, #bc0019)' } }}
           >
             roadmap
           </Button> to see a better timeline on Github!
@@ -194,7 +195,7 @@ export default function SoloProjectPage() {
       </Box>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography className="reveal-on-scroll" variant="h5" sx={{ m: 0, mb: 1.5, fontSize: { xs: '20px', sm: '24px', md: '28px' }, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Assets Used: Free from Epic Games</Typography>
+        <Typography className="reveal-on-scroll" variant="h5" sx={{ m: 0, mb: 1.5, fontSize: { xs: '20px', sm: '24px', md: '28px' }, fontWeight: 800, color: 'var(--accent)', textAlign: 'center' }}>Assets Used: Free from Epic Games</Typography>
         <Box className="reveal-on-scroll" component="ul" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'disc', fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
           {['Unreal Learning Kit Games (Asset Project)', 'Military Weapons Silver (Asset Pack)', 'Shooter Game (Asset Sound)'].map((item, i) => <li key={i}>{item}</li>)}
         </Box>
@@ -207,10 +208,10 @@ export default function SoloProjectPage() {
         items={itemData}
       />
 
-      <Modal open={openModal} onClose={closeModal} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'rgba(0, 0, 0, 0.95)' }}>
+      <Modal open={openModal} onClose={closeModal} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: 'rgba(2, 9, 20, 0.95)' }}>
         <Box sx={{ position: 'relative', maxWidth: '95vw', maxHeight: '95vh', outline: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <Box onClick={closeModal} sx={{ position: 'absolute', top: 10, right: 10, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: '50%', cursor: 'pointer', fontSize: '24px', fontWeight: 'bold', zIndex: 10, '&:hover': { bgcolor: 'rgba(0, 0, 0, 0.7)' } }}>✕</Box>
-          <Box sx={{ position: 'absolute', top: 10, right: 60, padding: '4px 12px', color: 'white', bgcolor: 'rgba(0, 0, 0, 0.5)', borderRadius: '4px', fontSize: '14px', fontWeight: 'bold', zIndex: 10 }}>{currentIndex + 1}/{currentGallery.length}</Box>
+          <Box onClick={closeModal} sx={{ position: 'absolute', top: 10, right: 10, width: 40, height: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', bgcolor: 'rgba(2, 9, 20, 0.7)', borderRadius: '50%', cursor: 'pointer', fontSize: '24px', fontWeight: 'bold', zIndex: 10, '&:hover': { bgcolor: 'rgba(2, 9, 20, 0.85)' } }}>✕</Box>
+          <Box sx={{ position: 'absolute', top: 10, right: 60, padding: '4px 12px', color: 'white', bgcolor: 'rgba(2, 9, 20, 0.7)', borderRadius: '4px', fontSize: '14px', fontWeight: 'bold', zIndex: 10 }}>{currentIndex + 1}/{currentGallery.length}</Box>
           <Box onClick={handlePrevious} sx={navButtonStyle('left')}>❮</Box>
           {selectedImage && <img src={selectedImage} alt="Full view" style={{ maxWidth: '90vw', maxHeight: '90vh', objectFit: 'contain' }} />}
           <Box onClick={handleNext} sx={navButtonStyle('right')}>❯</Box>
@@ -218,7 +219,7 @@ export default function SoloProjectPage() {
       </Modal>
 
       <Box className="reveal-on-scroll" sx={sectionBox}>
-        <Typography className="reveal-on-scroll" variant="h5" sx={{ m: 0, mb: 1.5, fontSize: { xs: '20px', sm: '24px', md: '28px' }, fontWeight: 800, color: 'var(--accent-2)', textAlign: 'center' }}>Learning:</Typography>
+        <Typography className="reveal-on-scroll" variant="h5" sx={{ m: 0, mb: 1.5, fontSize: { xs: '20px', sm: '24px', md: '28px' }, fontWeight: 800, color: 'var(--accent)', textAlign: 'center' }}>Learning:</Typography>
         <Box className="reveal-on-scroll" component="ol" sx={{ m: 0, pl: '1.2rem', lineHeight: 1.8, listStyle: 'decimal', fontSize: { xs: '14px', sm: '16px', md: '18px' } }}>
           {learning.map((item, i) => <li key={i}>{item}</li>)}
         </Box>

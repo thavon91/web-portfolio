@@ -1,7 +1,6 @@
 import { Box } from '@mui/material';
 import linkedinIcon from "../assets/LinkedIn.svg";
 import facebookIcon from "../assets/Facebook.svg";
-import whatsappIcon from "../assets/WhatsApp.svg";
 import githubIcon from "../assets/github.svg";
 import netlifyIcon from "../assets/Netlify.svg";
 
