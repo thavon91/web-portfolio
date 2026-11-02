@@ -60,7 +60,7 @@ export default function HomePage() {
             <Box className="home-projects-header">
               <Typography className="home-projects-kicker">/ MY PERSONAL WORK</Typography>
               <Typography className="home-projects-intro">
-                A collection of my personal game projects. These projects help me improve my skills in game design, programming, and 3D art.
+                A collection of my personal game projects. These are games I’ve made or am currently making as part of my solo online learning journey, which began in January 2025.
               </Typography>
             </Box>
             <Box className="home-project-filters" aria-label="Filter projects">
