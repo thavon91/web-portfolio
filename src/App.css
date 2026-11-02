@@ -589,6 +589,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 .menu .home-project-demo {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   margin-top: auto;
   padding: 7px 10px;
   border: 1px solid #ff1531;
