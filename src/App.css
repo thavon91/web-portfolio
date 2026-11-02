@@ -507,7 +507,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 .menu .home-project-media {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9.25;
   background: #061426;
 }
 
