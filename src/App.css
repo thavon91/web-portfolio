@@ -587,6 +587,12 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 .menu .home-project-link:hover {
   background: #ff1531;
   color: #f3f7ff !important;
+  -webkit-text-fill-color: #f3f7ff !important;
+}
+
+.menu .home-project-link:hover span {
+  color: #f3f7ff !important;
+  -webkit-text-fill-color: #f3f7ff !important;
 }
 
 .menu .home-project-card[data-category="adventure"] .home-project-link:hover {
