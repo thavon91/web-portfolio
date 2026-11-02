@@ -595,8 +595,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   border: 1px solid #ff1531;
   color: #ff1531 !important;
   -webkit-text-fill-color: #ff1531 !important;
-  font-size: .85rem;
-  font-weight: 800;
+  font-size: .75rem;
+  font-weight: 400;
 }
 
 .menu .home-project-card[data-category="adventure"] .home-project-demo {
