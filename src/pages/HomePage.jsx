@@ -28,7 +28,7 @@ const projects = [
   },
 ];
 
-const projectFilters = ['All', 'RPG', 'Adventure', 'Shooter'];
+const projectFilters = ['All', ...new Set(projects.map((project) => project.category))];
 
 const paperStyle = {
   flex: { xs: '0 0 auto', md: '1 1 0' },
