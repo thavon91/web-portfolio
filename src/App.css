@@ -545,7 +545,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   letter-spacing: .04em;
 }
 
-.menu .home-project-card[data-category="adventure"] .home-project-category {
+.menu .home-project-card[data-category="rpg"] .home-project-category {
   background: #2187ff;
 }
 
@@ -579,7 +579,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   transition: background .2s ease, color .2s ease;
 }
 
-.menu .home-project-card[data-category="adventure"] .home-project-link {
+.menu .home-project-card[data-category="rpg"] .home-project-link {
   border-color: #2187ff;
   color: #2187ff !important;
 }
@@ -589,7 +589,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   color: #f3f7ff !important;
 }
 
-.menu .home-project-card[data-category="adventure"] .home-project-link:hover {
+.menu .home-project-card[data-category="rpg"] .home-project-link:hover {
   background: #2187ff;
 }
 
