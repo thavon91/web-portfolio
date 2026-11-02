@@ -557,9 +557,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 }
 
 .menu .home-project-info p {
-  flex: 1;
-  min-height: 4.2em;
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   color: #f3f7ff !important;
   font-size: .72rem !important;
   font-weight: 400 !important;
@@ -570,7 +568,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
   padding: 7px 10px;
   border: 1px solid #ff1531;
   color: #ff1531 !important;
@@ -591,7 +588,6 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  margin-top: auto;
   padding: 7px 10px;
   border: 1px solid #ff1531;
   color: #ff1531 !important;
