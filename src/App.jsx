@@ -50,7 +50,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <div className="menu">
         <div className="topbar">
-          <a className="brand" href="#home">MY PORT<span>FOLIO</span></a>
+          <a className="brand" href="#home">PORT<span>FOLIO</span></a>
           <div className="topbar-center">
             <a href="#home">
               <button
@@ -95,7 +95,7 @@ export default function App() {
         <footer className="footer">
           <div className="footer-left">
             <span className="footer-name">Go_Hei!Hei?,</span>
-            <span className="footer-role"> IT Be Dev</span>
+            <span className="footer-role"> IT Can Be Dev</span>
           </div>
 
           <div className="footer-center">
