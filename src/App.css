@@ -452,7 +452,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   max-width: 100%;
   margin: 8px 0 14px;
   color: #2187ff !important;
-  font-size: clamp(.9rem, 1.2vw, 1rem);
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(.9rem, 1.05vw, 1.05rem) !important;
+  font-weight: 300 !important;
+  line-height: 1.55 !important;
+  letter-spacing: -.018em;
   overflow-wrap: break-word;
 }
 
