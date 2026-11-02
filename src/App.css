@@ -65,6 +65,9 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 .menu .brand,
 .menu .mega-title span,
 .menu .eyebrow,
+.menu .about-intro,
+.menu .about-intro strong,
+.menu .about-intro b,
 .menu .focus-item p,
 .menu .hobby h3,
 .menu .hobby p,
@@ -291,6 +294,13 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 .menu .home-kicker,
 .menu .home-subtitle {
   color: #2187ff !important;
+}
+
+.menu .about-intro,
+.menu .about-intro strong,
+.menu .about-intro b {
+  color: #f3f7ff !important;
+  -webkit-text-fill-color: #f3f7ff !important;
 }
 
 .menu .home-title,

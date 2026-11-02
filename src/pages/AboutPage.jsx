@@ -2,17 +2,17 @@ import resumePdf from '../assets/pdf/Thavon_Resume.pdf';
 
 const focuses = [
   { icon: 'gamepad', title: 'GAME DESIGN', text: 'Game mechanics,\nlevel design, systems', tone: 'red' },
-  { icon: 'programming', title: 'PROGRAMMING', text: 'Unreal Engine, C++,\nBlueprints, JavaScript, Three.js', tone: 'blue' },
-  { icon: 'palette', title: '3D ART', text: 'Blender, 3D modeling,\ntexturing', tone: 'red' },
-  { icon: 'team', title: 'GAME PRODUCTION', text: 'Project management,\nteamwork, game business', tone: 'blue' },
+  { icon: 'programming', title: 'PROGRAMMING', text: 'Unreal Engine, C++,\nBlueprints, JavaScript', tone: 'blue' },
+  { icon: 'palette', title: '3D ART', text: '3D, Texturing,\nAnimation', tone: 'red' },
+  { icon: 'team', title: 'GAME PRODUCTION', text: 'Project management,\nteamwork, business', tone: 'blue' },
 ];
 const hobbies = [
   { icon: 'movie', title: 'Watch Movies & Documentaries', text: 'Inspired by great stories and creative ideas', tone: 'red' },
   { icon: 'gamepad', title: 'Play Games', text: 'RPG, RTS, Cards, Turn-based, Fighter, MMO, MOBA, Racing', tone: 'blue' },
   { icon: 'palette', title: '2D/3D Art', text: 'Drawing, 3D sculpting, improving art skills', tone: 'red' },
-  { icon: 'code', title: 'Learn New Tech', text: 'Game engines, tools, AI, and programming.\nAttending GDC and gaming events (online/offline)', tone: 'blue' },
+  { icon: 'code', title: 'Learn New Tech', text: 'Game engines, tools, AI, and programming.\nWatching GDC and gaming events', tone: 'blue' },
   { icon: 'music', title: 'Listen to Music', text: 'Game soundtracks, various genres', tone: 'red' },
-  { icon: 'nature', title: 'Explore Nature', text: 'Road trips, concerts, and new places', tone: 'blue' },
+  { icon: 'nature', title: 'Explore Nature', text: 'Road trips, Go to concerts, and visit new places', tone: 'blue' },
 ];
 
 function HobbyIcon({ name }) {
@@ -81,7 +81,7 @@ export default function AboutPage() {
         <div className="eyebrow"><span>GET TO KNOW ME</span></div>
         <h1 className="mega-title"><span>ABOUT</span> <em>ME</em></h1>
         <div className="title-trails"><i /><i /><i /></div>
-        <p className="about-intro">I’m a <strong>game developer</strong> and <strong>game designer</strong> who loves creating<b> interactive experiences</b>, learning new technologies, and turning ideas into games. I enjoy both the creative and technical sides of game development, from design and art to programming and production.</p>
+        <p className="about-intro">I’m am creating interactive experiences, learning new technologies, and turning ideas into interactions. I am a passionate techie who enjoys teamwork and thrives in dynamic environments. I love both the creativity and technology involved in game development, including design, concept art, programming, and production.</p>
         <div className="section-rule" />
         <h2 className="sub-title">MY <span>FOCUS</span></h2>
         <div className="focus-grid">{focuses.map((item) => <article className={`focus-item ${item.tone}`} key={item.title}><div className="focus-icon"><FocusIcon name={item.icon} /></div><h3 className={item.icon === 'team' ? 'production-title' : undefined}>{item.title}</h3><p>{item.text}</p></article>)}</div>
