@@ -565,7 +565,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   line-height: 1.5;
 }
 
-.menu .home-project-link {
+.menu a.home-project-link:not(.resume-cta):not(.brand) {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -573,29 +573,31 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   padding: 7px 10px;
   border: 1px solid #ff1531;
   color: #ff1531 !important;
+  -webkit-text-fill-color: #ff1531 !important;
   font-size: .85rem;
   font-weight: 800;
   text-decoration: none;
   transition: background .2s ease, color .2s ease;
 }
 
-.menu .home-project-card[data-category="adventure"] .home-project-link {
+.menu .home-project-card[data-category="adventure"] a.home-project-link:not(.resume-cta):not(.brand) {
   border-color: #2187ff;
   color: #2187ff !important;
+  -webkit-text-fill-color: #2187ff !important;
 }
 
-.menu .home-project-link:hover {
+.menu .home-project-card a.home-project-link:not(.resume-cta):not(.brand):hover {
   background: #ff1531;
   color: #f3f7ff !important;
   -webkit-text-fill-color: #f3f7ff !important;
 }
 
-.menu .home-project-link:hover span {
+.menu .home-project-card a.home-project-link:not(.resume-cta):not(.brand):hover span {
   color: #f3f7ff !important;
   -webkit-text-fill-color: #f3f7ff !important;
 }
 
-.menu .home-project-card[data-category="adventure"] .home-project-link:hover {
+.menu .home-project-card[data-category="adventure"] a.home-project-link:not(.resume-cta):not(.brand):hover {
   background: #2187ff;
 }
 
