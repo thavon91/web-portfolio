@@ -488,45 +488,80 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 }
 
 .menu .home-project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid rgba(29, 100, 181, .65);
-  border-radius: 6px;
   background: linear-gradient(145deg, rgba(3, 12, 26, .96), rgba(6, 27, 52, .9));
+  clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 9px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.menu .home-project-card:hover {
+  border-color: rgba(33, 135, 255, .95);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .35), inset 0 0 24px rgba(15, 93, 180, .12);
+  transform: translateY(-3px);
+}
+
+.menu .home-project-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #061426;
 }
 
 .menu .home-project-image {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.menu .home-project-card:hover .home-project-image {
+  transform: scale(1.04);
 }
 
 .menu .home-project-info {
-  padding: 14px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px;
 }
 
 .menu .home-project-category {
-  display: inline-block;
-  padding: 4px 9px;
-  border-radius: 3px;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  padding: 4px 12px 4px 8px;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
   background: #ff1531;
   color: #f3f7ff;
   font-size: .75rem;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.menu .home-project-card[data-category="adventure"] .home-project-category {
+  background: #2187ff;
 }
 
 .menu .home-project-info h3 {
-  margin: 10px 0 5px;
+  margin: 0 0 5px;
   color: #f3f7ff !important;
-  font-size: 1.15rem;
+  font-size: clamp(.95rem, 1.15vw, 1.15rem);
+  line-height: 1.25;
 }
 
 .menu .home-project-info p {
-  min-height: 2.8em;
-  margin: 0 0 14px;
+  flex: 1;
+  min-height: 4.2em;
+  margin: 0 0 12px;
   color: #f3f7ff !important;
-  font-size: .9rem;
+  font-size: clamp(.78rem, .95vw, .9rem);
   line-height: 1.5;
 }
 
@@ -534,32 +569,56 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 12px;
+  margin-top: auto;
+  padding: 7px 10px;
   border: 1px solid #ff1531;
-  border-radius: 4px;
-  color: #f3f7ff !important;
+  color: #ff1531 !important;
   font-size: .85rem;
   font-weight: 800;
   text-decoration: none;
+  transition: background .2s ease, color .2s ease;
 }
 
-.menu .home-project-demo {
-  border-color: rgba(29, 100, 181, .65);
-  color: #f3f7ff !important;
+.menu .home-project-card[data-category="adventure"] .home-project-link {
+  border-color: #2187ff;
+  color: #2187ff !important;
 }
 
 .menu .home-project-link:hover {
   background: #ff1531;
+  color: #f3f7ff !important;
 }
 
-@media (max-width: 1000px) {
+.menu .home-project-card[data-category="adventure"] .home-project-link:hover {
+  background: #2187ff;
+}
+
+.menu .home-project-link:focus-visible {
+  outline: 2px solid #f3f7ff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
   .menu .home-project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 580px) {
   .menu .home-project-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu .home-project-card,
+  .menu .home-project-image,
+  .menu .home-project-link {
+    transition: none;
+  }
+
+  .menu .home-project-card:hover,
+  .menu .home-project-card:hover .home-project-image {
+    transform: none;
   }
 }

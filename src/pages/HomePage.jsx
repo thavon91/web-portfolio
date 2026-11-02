@@ -79,10 +79,12 @@ export default function HomePage() {
             </Box>
             <Box className="home-project-grid">
               {visibleProjects.map((project) => (
-                <article className="home-project-card" key={project.title}>
-                  <Box component="img" src={project.image} alt={`${project.title} preview`} className="home-project-image" />
-                  <Box className="home-project-info">
+                <article className="home-project-card" data-category={project.category.toLowerCase()} key={project.title}>
+                  <Box className="home-project-media">
+                    <Box component="img" src={project.image} alt={`${project.title} preview`} className="home-project-image" />
                     <span className="home-project-category">{project.category}</span>
+                  </Box>
+                  <Box className="home-project-info">
                     <Typography component="h3">{project.title}</Typography>
                     <Typography component="p">{project.description}</Typography>
                     {project.demo ? (
