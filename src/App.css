@@ -561,7 +561,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   min-height: 4.2em;
   margin: 0 0 12px;
   color: #f3f7ff !important;
-  font-size: clamp(.78rem, .95vw, .9rem);
+  font-size: clamp(.72rem, .85vw, .8rem);
+  font-weight: 400;
   line-height: 1.5;
 }
 
@@ -595,8 +596,8 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   border: 1px solid #ff1531;
   color: #ff1531 !important;
   -webkit-text-fill-color: #ff1531 !important;
-  font-size: .75rem;
-  font-weight: 400;
+  font-size: .85rem;
+  font-weight: 800;
 }
 
 .menu .home-project-card[data-category="adventure"] .home-project-demo {
