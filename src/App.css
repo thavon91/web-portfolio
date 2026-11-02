@@ -586,6 +586,24 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   -webkit-text-fill-color: #2187ff !important;
 }
 
+.menu .home-project-demo {
+  display: inline-flex;
+  align-items: center;
+  margin-top: auto;
+  padding: 7px 10px;
+  border: 1px solid #ff1531;
+  color: #ff1531 !important;
+  -webkit-text-fill-color: #ff1531 !important;
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.menu .home-project-card[data-category="adventure"] .home-project-demo {
+  border-color: #2187ff;
+  color: #2187ff !important;
+  -webkit-text-fill-color: #2187ff !important;
+}
+
 .menu .home-project-card a.home-project-link:not(.resume-cta):not(.brand):hover {
   background: #ff1531;
   color: #f3f7ff !important;
