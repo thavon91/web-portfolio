@@ -13,17 +13,17 @@ const projects = [
     image: projectImage,
   },
   {
-    title: 'Fantasy RPG Demo',
-    category: 'RPG',
-    description: 'Demo project card for a fantasy role-playing game concept.',
-    image: fantasyDemoImage,
-    demo: true,
-  },
-  {
     title: 'Adventure Prototype Demo',
     category: 'Adventure',
     description: 'Demo project card for an exploration-focused adventure game.',
     image: adventureDemoImage,
+    demo: true,
+  },
+  {
+    title: 'Fantasy RPG Demo',
+    category: 'RPG',
+    description: 'Demo project card for a fantasy role-playing game concept.',
+    image: fantasyDemoImage,
     demo: true,
   },
 ];
