@@ -180,6 +180,11 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   -webkit-text-fill-color: #f3f7ff !important;
 }
 
+.menu .home-project-bio {
+  color: #2187ff !important;
+  -webkit-text-fill-color: #2187ff !important;
+}
+
 .menu .home-quote,
 .menu .MuiTypography-root.home-quote {
   font-family: 'Inter', sans-serif !important;

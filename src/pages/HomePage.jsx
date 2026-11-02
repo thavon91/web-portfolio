@@ -56,13 +56,10 @@ export default function HomePage() {
           <Typography className="reveal-on-scroll home-title" variant="h1" sx={{ fontWeight: 900, fontStyle: 'italic', lineHeight: 1, fontSize: { xs: '32px', sm: '48px', md: '64px', lg: '90px' }, m: '0 0 5px' }}><span>HEI!?</span> <em>THAVON</em></Typography>
           <Typography className="reveal-on-scroll home-detail home-subtitle" variant="h5" sx={{ fontSize: { xs: '14px', sm: '18px', md: '22px', lg: '28px' }, mb: 2 }}><strong>IT, Design</strong>, and Game Developer</Typography>
           <Typography className="reveal-on-scroll home-detail home-bio" sx={{ lineHeight: 1.7, textAlign: 'justify', mb: 2, fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '1.2rem' } }}>My nickname is Hei. I am in Laos, a highly dedicated and self-motivated <strong className="home-bio-game-player">GamePlayer</strong> who has had a passion for <b className="home-bio-game-maker">GameMaker</b>. I have been addicted to playing games since I was a young boy. <strong>Games have motivated me</strong> to not give up on my life.</Typography>
-          <Typography className="reveal-on-scroll home-detail home-bio" sx={{ lineHeight: 1.7, textAlign: 'justify', fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '1.2rem' } }}>This portfolio is a list of games I have done and am in progress of making since I started my <b>solo online learning project</b> in January 2025.</Typography>
+          <Typography className="reveal-on-scroll home-detail home-bio home-project-bio" sx={{ lineHeight: 1.7, textAlign: 'justify', fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '1.2rem' } }}>A collection of my personal game projects. These projects help me improve my skills in game design, programming, and 3D art.</Typography>
           <Box className="home-projects home-projects-in-profile">
             <Box className="home-projects-header">
               <Typography className="home-projects-kicker">/ MY PERSONAL WORK</Typography>
-              <Typography className="home-projects-intro">
-                A collection of my personal game projects. These projects help me improve my skills in game design, programming, and 3D art.
-              </Typography>
             </Box>
             <Box className="home-project-filters" aria-label="Filter projects">
               {projectFilters.map((filter) => (
