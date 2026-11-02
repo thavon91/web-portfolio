@@ -88,7 +88,7 @@ export default function HomePage() {
                     <Typography component="h3">{project.title}</Typography>
                     <Typography component="p">{project.description}</Typography>
                     {project.demo ? (
-                      <span className="home-project-link home-project-demo">DEMO CARD</span>
+                      <span className="home-project-link home-project-demo">DEMO CARD <span aria-hidden="true">→</span></span>
                     ) : (
                       <a href="#SoloProject" className="home-project-link">VIEW DETAILS <span aria-hidden="true">→</span></a>
                     )}
