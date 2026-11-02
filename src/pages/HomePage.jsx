@@ -7,22 +7,22 @@ import adventureDemoImage from '../assets/gallery/pic4.png';
 
 const projects = [
   {
-    title: 'TPS Multiplayer Game',
+    title: 'TPS Game',
     category: 'Shooter',
-    description: 'A multiplayer third-person shooter in Unreal Engine 5, built with C++.',
+    description: 'A third-person shooter in Unreal Engine 5 & C++.',
     image: projectImage,
   },
   {
-    title: 'Adventure Prototype Demo',
+    title: 'Adventure Demo',
     category: 'Adventure',
-    description: 'Demo project card for an exploration-focused adventure game.',
+    description: 'Demo project card for an adventure game.',
     image: adventureDemoImage,
     demo: true,
   },
   {
-    title: 'Fantasy RPG Demo',
+    title: 'RPG Demo',
     category: 'RPG',
-    description: 'Demo project card for a fantasy role-playing game concept.',
+    description: 'Demo project card for a fantasy role-playing game.',
     image: fantasyDemoImage,
     demo: true,
   },
@@ -54,7 +54,7 @@ export default function HomePage() {
         <Paper className="home-panel home-intro-panel reveal-on-scroll" elevation={3} sx={{ ...paperStyle }}>
           <Typography variant="overline" className="home-kicker" sx={{ fontWeight: 800, letterSpacing: '.1em', fontSize: { xs: '12px', sm: '16px', md: '20px', lg: '24px' }, color: 'var(--accent-2)', display: 'block' }}><span>GAME DEV</span> <em>PORTFOLIO</em></Typography>
           <Typography className="reveal-on-scroll home-title" variant="h1" sx={{ fontWeight: 900, fontStyle: 'italic', lineHeight: 1, fontSize: { xs: '32px', sm: '48px', md: '64px', lg: '90px' }, m: '0 0 5px' }}><span>HEI!?</span> <em>THAVON</em></Typography>
-          <Typography className="reveal-on-scroll home-detail home-subtitle" variant="h5" sx={{ fontSize: { xs: '14px', sm: '18px', md: '22px', lg: '28px' }, mb: 2 }}><strong>IT</strong>, Design, and Game Developer</Typography>
+          <Typography className="reveal-on-scroll home-detail home-subtitle" variant="h5" sx={{ fontSize: { xs: '14px', sm: '18px', md: '22px', lg: '28px' }, mb: 2 }}><strong>IT, Design</strong>, and Game Developer</Typography>
           <Typography className="reveal-on-scroll home-detail home-bio" sx={{ lineHeight: 1.7, textAlign: 'justify', mb: 2, fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '1.2rem' } }}>My nickname is Hei. I am in Laos, a highly dedicated and self-motivated <strong className="home-bio-game-player">GamePlayer</strong> who has had a passion for <b className="home-bio-game-maker">GameMaker</b>. I have been addicted to playing games since I was a young boy. <strong>Games have motivated me</strong> to not give up on my life.</Typography>
           <Typography className="reveal-on-scroll home-detail home-bio" sx={{ lineHeight: 1.7, textAlign: 'justify', fontSize: { xs: '14px', sm: '16px', md: '18px', lg: '1.2rem' } }}>This portfolio is a list of games I have done and am in progress of making since I started my <b>solo online learning project</b> in January 2025.</Typography>
           <Box className="home-projects home-projects-in-profile">
