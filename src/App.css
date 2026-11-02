@@ -533,7 +533,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
 
 .menu .home-project-category {
   position: absolute;
-  bottom: 4px;
+  bottom: 0;
   left: 8px;
   padding: 4px 12px 4px 8px;
   clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
