@@ -33,12 +33,14 @@ export function frameObjectWithCamera(object, camera, controls) {
   const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * camera.aspect);
   const verticalFitDistance = size.y / (2 * Math.tan(verticalFov / 2));
   const horizontalFitDistance = size.z / (2 * Math.tan(horizontalFov / 2));
-  const distance = Math.max(4.0, verticalFitDistance, horizontalFitDistance) * CAMERA_PADDING;
+  const padding = camera.aspect < 1 ? 1.05 : CAMERA_PADDING;
+  const distance = Math.max(4.0, verticalFitDistance, horizontalFitDistance) * padding;
 
   controls.target.copy(target);
   camera.position.set(box.max.x + distance, target.y, target.z);
-  camera.near = 0.01;
-  camera.far = distance * 100;
+  // A tight depth range keeps thin button symbols distinct on mobile GPUs.
+  camera.near = Math.max(0.1, distance * 0.1);
+  camera.far = distance + size.length() * 2;
   camera.lookAt(target);
   camera.updateProjectionMatrix();
   controls.update();

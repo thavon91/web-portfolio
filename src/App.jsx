@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "./theme";
 import "./App.css";
@@ -9,6 +9,21 @@ import GDDPage from "./pages/GDDPage";
 import AboutPage from "./pages/AboutPage";
 
 export default function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuToggle = useRef(null);
+  useEffect(() => {
+    if (!menuOpen) return;
+    const closeOutside = (event) => { if (!event.target.closest('.topbar')) setMenuOpen(false); };
+    const closeEscape = (event) => {
+      if (event.key === 'Escape') { setMenuOpen(false); menuToggle.current?.focus(); }
+    };
+    document.addEventListener('pointerdown', closeOutside);
+    document.addEventListener('keydown', closeEscape);
+    return () => {
+      document.removeEventListener('pointerdown', closeOutside);
+      document.removeEventListener('keydown', closeEscape);
+    };
+  }, [menuOpen]);
   const [activePage, setActivePage] = useState(() =>
     (typeof window !== "undefined" && window.location.hash.replace("#", "")) || "home"
   );
@@ -17,6 +32,7 @@ export default function App() {
     const applyHash = () => {
       const next = window.location.hash.replace("#", "") || "home";
       setActivePage(next);
+      setMenuOpen(false);
     };
 
     applyHash();
@@ -51,36 +67,22 @@ export default function App() {
       <div className="menu">
         <div className="topbar">
           <a className="brand" href="#home">PORT<span>FOLIO</span></a>
-          <div className="topbar-center">
-            <a href="#home">
-              <button
-                className={`nav-button ${activePage === "home" ? "active" : ""}`}
-                onClick={() => setActivePage("home")}>
-                Home
-              </button>
-            </a>
-            <a href="#SoloProject">
-              <button
-                className={`nav-button ${activePage === "SoloProject" ? "active" : ""}`}
-                onClick={() => setActivePage("SoloProject")}>
-                Solo Project
-              </button>
-            </a>
-            <a href="#GDD">
-              <button
-                className={`nav-button ${activePage === "GDD" ? "active" : ""}`}
-                onClick={() => setActivePage("GDD")}>
-                GDD
-              </button>
-            </a>
-            <a href="#About">
-              <button
-                className={`nav-button ${activePage === "About" ? "active" : ""}`}
-                onClick={() => setActivePage("About")}>
-                About
-              </button>
-            </a>
-          </div>
+          <button ref={menuToggle} type="button" className="mobile-menu-toggle"
+            aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={menuOpen} aria-controls="portfolio-navigation"
+            onClick={() => setMenuOpen(open => !open)}>
+            <span /><span /><span />
+          </button>
+          <nav id="portfolio-navigation" aria-label="Main navigation"
+            className={`topbar-center${menuOpen ? ' is-open' : ''}`}>
+            {[['home', 'Home'], ['SoloProject', 'Solo Project'], ['GDD', 'GDD'], ['About', 'About']].map(([page, label]) => (
+              <a key={page} href={`#${page}`} className={`nav-button ${activePage === page ? 'active' : ''}`}
+                aria-current={activePage === page ? 'page' : undefined}
+                onClick={() => { setActivePage(page); setMenuOpen(false); }}>
+                {label}
+              </a>
+            ))}
+          </nav>
         </div>
 
         {activePage === "home" && <HomePage />}

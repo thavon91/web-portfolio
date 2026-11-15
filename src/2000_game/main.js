@@ -35,6 +35,7 @@ renderer.toneMappingExposure = 1.1;
 app.appendChild(renderer.domElement);
 
 const controls = createCameraControls(camera, renderer.domElement);
+let levelModel = null;
 const clock = new THREE.Clock();
 let gameControl = null;
 let gameController = null;
@@ -99,11 +100,19 @@ loader.load(
   levelUrl,
   (gltf) => {
     const model = gltf.scene;
+    levelModel = model;
     model.traverse((child) => {
       if (child.isMesh) {
         if (child.material) {
           child.material.side = THREE.DoubleSide;
           child.material.needsUpdate = true;
+        }
+        if (/^ControlHUB_Direction_DPad_.*_Arrow$/.test(child.name)) {
+          child.material = child.material.clone();
+          child.material.polygonOffset = true;
+          child.material.polygonOffsetFactor = -2;
+          child.material.polygonOffsetUnits = -2;
+          child.renderOrder = 1;
         }
       }
     });
@@ -139,6 +148,7 @@ loader.load(
 
 function resize() {
   resizeCamera(camera);
+  if (levelModel) frameObjectWithCamera(levelModel, camera, controls);
   renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
