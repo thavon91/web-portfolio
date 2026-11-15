@@ -191,9 +191,12 @@ button {
   position: fixed;
   inset: 0;
   z-index: 10;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  height: 100dvh;
+  padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   background:
     radial-gradient(circle at 50% 40%, rgba(187, 224, 219, 0.14), transparent 34%),
     rgba(12, 13, 13, 0.64);
@@ -208,13 +211,14 @@ button {
 }
 
 .settings-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  display: flex;
+  flex-direction: column;
   width: min(980px, 100%);
-  max-height: min(760px, calc(100vh - 48px));
-  overflow: auto;
+  max-height: min(760px, 100%);
+  min-height: 0;
+  overflow: hidden;
   position: relative;
-  padding: 28px;
+  padding: 0;
   border: 2px solid rgba(238, 231, 203, 0.34);
   border-radius: 8px;
   background:
@@ -230,26 +234,30 @@ button {
   grid-row: 1;
 }
 
+.settings-header { position: relative; flex: 0 0 auto; padding: 22px 24px 14px; border-bottom: 1px solid #71867c44; }
+.settings-header .settings-kicker { min-height: 30px; padding-right: 56px; }
+.settings-content { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 24px 24px; }
+
 .settings-tabbar {
   grid-row: 2;
 }
 
 .settings-view {
-  grid-area: 3 / 1;
+  min-width: 0;
 }
 
 .settings-view[hidden] {
-  display: block;
-  visibility: hidden;
-  pointer-events: none;
+  display: none;
 }
 
 .settings-close {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
   padding: 0;
   border: 2px solid rgba(64, 72, 64, 0.32);
   border-radius: 50%;
@@ -266,6 +274,9 @@ button {
   background: #5b7167;
 }
 
+.settings-close svg { width: 22px; height: 22px; }
+.settings-close:focus-visible { outline: 3px solid #30352f; outline-offset: 2px; }
+
 .settings-kicker {
   margin-bottom: 6px;
   color: #697369;
@@ -278,7 +289,7 @@ button {
 .settings-tabbar {
   display: flex;
   gap: 8px;
-  margin: 0 48px 12px 0;
+  margin: 10px 0 0;
 }
 
 .settings-tab {
@@ -462,14 +473,17 @@ button {
   }
 
   .settings-overlay {
-    padding: 14px;
-    align-items: end;
+    align-items: center;
   }
 
   .settings-panel {
-    max-height: calc(100vh - 28px);
-    padding: 22px 16px 16px;
+    max-height: 100%;
   }
+
+  .settings-header { padding: 16px 12px 12px; }
+  .settings-content { padding: 0 12px 16px; }
+  .settings-tabbar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .settings-tab, .settings-home-button { min-width: 0; padding: 8px 4px; font-size: clamp(11px, 3.2vw, 15px); white-space: nowrap; }
 
   .settings-grid {
     grid-template-columns: 1fr;

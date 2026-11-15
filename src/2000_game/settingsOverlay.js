@@ -11,14 +11,16 @@ export function createSettingsOverlay({
 
   overlay.innerHTML = `
     <section class="settings-panel" role="dialog" aria-modal="true" aria-label="Settings">
-      <button class="settings-close" type="button" aria-label="Close settings">×</button>
+      <header class="settings-header">
+      <button class="settings-close" type="button" aria-label="Close settings"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
       <div class="settings-kicker">Settings</div>
       <div class="settings-tabbar" role="tablist" aria-label="Settings pages">
         <button class="settings-tab active" type="button" role="tab" aria-selected="true" data-settings-tab="controls">Controls</button>
         <button class="settings-tab" type="button" role="tab" aria-selected="false" data-settings-tab="options">Options</button>
         <button class="settings-home-button" type="button">Exit to Home</button>
       </div>
-
+      </header>
+      <div class="settings-content">
       <div class="settings-view" data-settings-view="controls">
         <p class="settings-intro">
           Quick controller guide for computer and mobile play.
@@ -81,6 +83,7 @@ export function createSettingsOverlay({
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   `;
