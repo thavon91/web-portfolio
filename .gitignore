@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+tmp/
+public/uro_game/
+scripts/.pdf-deps/
+__pycache__/
+*.pyc
 *.local
 
 # Editor directories and files

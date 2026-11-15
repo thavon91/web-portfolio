@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#dbc394"/>
+      <stop offset="0.45" stop-color="#d4bc8c"/>
+      <stop offset="1" stop-color="#c7ad7e"/>
+    </linearGradient>
+    <filter id="paperNoise">
+      <feTurbulence type="fractalNoise" baseFrequency=".018" numOctaves="4" seed="22"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .18"/>
+      </feComponentTransfer>
+    </filter>
+    <filter id="blockShadow" x="-30%" y="-30%" width="170%" height="170%">
+      <feDropShadow dx="11" dy="10" stdDeviation="1.6" flood-color="#3a3328" flood-opacity=".48"/>
+    </filter>
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation=".35"/>
+    </filter>
+    <pattern id="smallGrid" width="52" height="52" patternUnits="userSpaceOnUse">
+      <path d="M52 0H0v52" fill="none" stroke="#816f52" stroke-opacity=".16" stroke-width="1.4"/>
+    </pattern>
+    <g id="cube">
+      <rect x="0" y="0" width="54" height="54" rx="4" fill="currentColor" stroke="#3b352b" stroke-width="5"/>
+      <rect x="9" y="9" width="33" height="33" rx="2" fill="#fff2cf" opacity=".18"/>
+      <path d="M5 7h44v8H13v36H5z" fill="#ffffff" opacity=".20"/>
+      <path d="M49 7v42H7v-8h34V7z" fill="#000000" opacity=".23"/>
+    </g>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#101211"/>
+  <rect x="48" y="48" width="1824" height="984" fill="url(#paper)"/>
+  <rect x="48" y="48" width="1824" height="984" fill="url(#smallGrid)" opacity=".68"/>
+  <rect x="48" y="48" width="1824" height="984" filter="url(#paperNoise)"/>
+
+  <g fill="none" stroke="#4d4538" stroke-linecap="square" stroke-linejoin="round" opacity=".58" filter="url(#softBlur)">
+    <path d="M154 136c260 18 445 2 644-4 190-6 320 34 512 32 190-2 355-28 610 0" stroke-width="3.4"/>
+    <path d="M178 925c250-34 432-13 664-2 176 8 266-39 488-38 194 1 334 12 564-16" stroke-width="3.2"/>
+    <path d="M202 146 154 852" stroke-width="4"/>
+    <path d="M1812 194 1728 880" stroke-width="4"/>
+  </g>
+
+  <g transform="translate(520 302)" fill="none" stroke="#4b4438" stroke-linecap="square" stroke-linejoin="round">
+    <path d="M64 0h790l58 58v243l-58 58H64L6 301V58z" stroke-width="7" opacity=".9"/>
+    <path d="M104 50h718" stroke-width="5" opacity=".85"/>
+    <path d="M104 110h718" stroke-width="5" opacity=".85"/>
+    <path d="M104 170h718" stroke-width="5" opacity=".85"/>
+    <path d="M104 230h718" stroke-width="5" opacity=".85"/>
+    <path d="M104 290h718" stroke-width="5" opacity=".85"/>
+    <path d="M210 50v245M330 50v245M450 50v245M570 50v245M690 50v245" stroke-width="5" opacity=".85"/>
+  </g>
+
+  <g filter="url(#blockShadow)" transform="rotate(-3 0 0)">
+    <g color="#69a8b2" transform="translate(356 670)">
+      <use href="#cube"/><use href="#cube" x="60"/><use href="#cube" x="120"/><use href="#cube" x="180"/>
+    </g>
+    <g color="#b8944f" transform="translate(652 580)">
+      <use href="#cube"/><use href="#cube" y="60"/><use href="#cube" x="60" y="60"/><use href="#cube" x="120" y="60"/>
+    </g>
+    <g color="#9cab75" transform="translate(1010 610) rotate(-4)">
+      <use href="#cube" x="60"/><use href="#cube" x="120"/><use href="#cube" y="60"/><use href="#cube" x="60" y="60"/>
+    </g>
+    <g color="#9b83ad" transform="translate(1354 544) rotate(-3)">
+      <use href="#cube"/><use href="#cube" x="60"/><use href="#cube" y="60"/><use href="#cube" x="60" y="60"/>
+    </g>
+  </g>
+
+  <g opacity=".22" fill="none" stroke="#1f1b16" stroke-width="3">
+    <path d="M520 303c18 8 34 12 52 14M1372 660c34-5 58-16 82-29"/>
+    <path d="M605 664c24 12 52 16 86 15M998 650c40 12 78 10 116-2"/>
+  </g>
+</svg>

@@ -1,13 +1,36 @@
-<<<<<<< HEAD
-# React + Vite
+# Hei Thavon portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React portfolio with Game.
 
-Currently, two official plugins are available:
+## Run
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- `npm ci` installs the portfolio and URO dependencies.
+- `npm run dev` starts the portfolio locally.
+- `npm run build` builds URO and the portfolio into `dist/`.
+- `npm run lint` checks project code.
+- `npm run preview` previews the production build.
 
-## Expanding the ESLint configuration
+## Project structure
 
-If developing a production application, recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `src/pages/` and `src/components/`: portfolio UI.
+- `src/2000_game/`: Hex Tetromino source and assets.
+- `src/uro_game/`: standalone URO source, assets, and its own dependency versions.
+- `public/uro_game/`: generated URO output; rebuilt automatically. Do not edit it directly.
+- `dist/`: generated website for deployment. Do not edit it directly.
+- `scripts/`: optional resume generators. Final PDFs live in `src/assets/pdf/`.
+
+URO opens at `/uro_game/`. It contains four skeleton enemies sharing one model and animation set.
+The URO `.env.local` contains its existing public Supabase client configuration; it is ignored by Git.
+See `src/uro_game/SUPABASE_SETUP.md` for authentication setup.
+
+## GitHub Pages
+
+The single workflow `.github/workflows/deploy.yml` builds and deploys `dist/`.
+It sets `VITE_BASE_PATH=/web-portfolio/` for the repository URL.
+Generated folders, dependencies, temporary files, and local environment files are ignored by Git.
+
+## Optional resume editing
+
+Install Python requirements with `python -m pip install -r scripts/requirements.txt`.
+Run `python scripts/style-resume.py` or `python scripts/style-it-resume.py` to regenerate a resume.
+The original portrait source is kept in `scripts/resources/`. Previews are generated in disposable `tmp/pdfs/`.

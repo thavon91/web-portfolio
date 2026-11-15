@@ -1,0 +1,17 @@
+{
+  "name": "bombom-threejs-game",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "three": "^0.185.1",
+    "three.quarks": "^0.17.1",
+    "vite": "^7.2.0"
+  }
+}

@@ -1,15 +1,12 @@
 import { Box } from '@mui/material';
 import linkedinIcon from "../assets/LinkedIn.svg";
 import facebookIcon from "../assets/Facebook.svg";
-import whatsappIcon from "../assets/WhatsApp.svg";
 import githubIcon from "../assets/github.svg";
-import netlifyIcon from "../assets/Netlify.svg";
 
 const socialLinks = [
   { src: linkedinIcon, href: 'https://www.linkedin.com/in/hei-thavon-2051b3274/', alt: 'Linkedin' },
   { src: facebookIcon, href: 'https://www.facebook.com/share/1HXBTVNyrx/', alt: 'Facebook' },
   { src: githubIcon, href: 'https://github.com/thavon91', alt: 'GitHub' },
-  { src: netlifyIcon, href: 'https://thavon91.netlify.app/', alt: 'Netlify' }
 ];
 
 export default function SocialIcons({ size = 80, className = '' }) {
