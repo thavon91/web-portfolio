@@ -139,8 +139,8 @@ entries = [
  ('2021 - 2022, CBF Pharma Vientiane', 'IT LIMS Systems', 'https://cbfpharma.la/en/'),
  ('2019 - 2021, Occupation Health Checkup of Mittaphab Hospital', 'IT LIMS Support', 'https://www.facebook.com/healthcheckupcentre/'),
  ('22 August-22 November, 2018, Digital Classifieds Laos Sole', 'Digital Marketing Intern', 'https://www.yula.la/en'),
- ('2014 - 2018, Sabaidee Vientiane and Namphou Park Restaurants', 'Waiter', 'https://www.facebook.com/sabaideevientianelao/'),
  ('01 May-30 July, 2017, Digital Monkey Laos', 'Digital Media Intern', 'https://www.digitalmonkey.la/'),
+ ('2014 - 2018, Sabaidee Vientiane and Namphou Park Restaurants', 'Waiter', 'https://www.facebook.com/sabaideevientianelao/'),
 ]
 y = 290
 for title, role, url in entries:
