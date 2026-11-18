@@ -16,6 +16,12 @@ scripts/.pdf-deps/
 __pycache__/
 *.pyc
 *.local
+.env
+.env.*
+!.env.example
+/scripts/
+*.pem
+*.key
 
 # Editor directories and files
 .vscode/*
