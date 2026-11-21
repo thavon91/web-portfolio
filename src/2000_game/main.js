@@ -16,7 +16,7 @@ import {
   setSoundEffectsVolume,
   startGameMusic,
 } from './soundEffects/index.js';
-import levelUrl from './assets/level.glb?url';
+import { takePrivateLevel } from './privateLevel.js';
 
 const app = document.querySelector('#app');
 const PLAY_MUSIC_LEAD_IN_MS = 260;
@@ -96,8 +96,9 @@ const settingsOverlay = createSettingsOverlay({
   },
 });
 
-loader.load(
-  levelUrl,
+export const levelReady = new Promise((resolve, reject) => loader.parse(
+  takePrivateLevel(),
+  '',
   (gltf) => {
     const model = gltf.scene;
     levelModel = model;
@@ -137,14 +138,15 @@ loader.load(
       onSettingsToggle: settingsOverlay.toggle,
     });
     status.remove();
+    resolve();
   },
-  undefined,
   (error) => {
     console.error(error);
     status.textContent = 'Failed to load level.glb';
     status.classList.add('error');
+    reject(new Error('Could not prepare the game level. Refresh the page to retry.'));
   }
-);
+));
 
 function resize() {
   resizeCamera(camera);

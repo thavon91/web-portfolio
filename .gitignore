@@ -22,6 +22,7 @@ __pycache__/
 /scripts/
 *.pem
 *.key
+/src/2000_game/assets/level.glb
 
 # Editor directories and files
 .vscode/*

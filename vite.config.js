@@ -1,5 +1,5 @@
 
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -26,7 +26,13 @@ function serveUroDirectory(server) {
   })
 }
 
-export default defineConfig({
+export default defineConfig(({ mode }) => {
+  const gameEnv = loadEnv(mode, resolve(projectRoot, 'src/uro_game'), 'VITE_')
+  const rootEnv = loadEnv(mode, projectRoot, 'VITE_')
+  return {
+  define: Object.fromEntries(['VITE_SUPABASE_URL', 'VITE_SUPABASE_PUBLISHABLE_KEY'].map((key) => [
+    `import.meta.env.${key}`, JSON.stringify(process.env[key] || rootEnv[key] || gameEnv[key] || ''),
+  ])),
   plugins: [react(), {
     name: 'uro-directory-route',
     configureServer: serveUroDirectory,
@@ -42,4 +48,5 @@ export default defineConfig({
       },
     },
   },
+  }
 })
