@@ -1,6 +1,6 @@
 import './style.css';
 import { configured, supabase } from '../uro_game/src/auth/supabase.js';
-import { usernameToEmail } from '../uro_game/src/auth/username.js';
+import { usernameToEmail } from './username.js';
 import { downloadPrivateLevel } from './privateLevel.js';
 import gddUrl from './GDD/2000 GDD.pdf?url';
 
@@ -93,7 +93,7 @@ if (!configured) {
 } else {
   try {
     const { data: { user } } = await supabase.auth.getUser();
-    showAccount(user);
+    showAccount(user?.email?.toLowerCase().endsWith('@hex.com') ? user : null);
     submit.disabled = false;
   } catch {
     showAccount(null);
