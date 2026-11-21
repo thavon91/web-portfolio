@@ -1,3 +1,4 @@
+import { privateAssetUrl } from "../../privateAssets.js";
 
 const ART_WIDTH = 1868;
 const ART_HEIGHT = 842;
@@ -60,4 +61,4 @@ export function createGameTimer(canvas) {
 
   return { render, start, stop };
 }
-import timerArtUrl from "./Mossy_Timer_HUD.png?url";
+const timerArtUrl = privateAssetUrl("HUD/Mossy_Timer_HUD.png");

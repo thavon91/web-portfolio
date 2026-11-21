@@ -1,8 +1,9 @@
+import { privateAssetUrl } from "../../privateAssets.js";
 import * as THREE from "three";
 
 export function createLevelBackground() {
   const texture = new THREE.TextureLoader().load(
-    `${import.meta.env.BASE_URL}background.jpg.png`,
+    privateAssetUrl("background.jpg.png"),
     () => fitBackground(),
   );
   texture.colorSpace = THREE.SRGBColorSpace;

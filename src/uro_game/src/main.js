@@ -1,3 +1,4 @@
+import { privateAssetUrl } from "./privateAssets.js";
 import * as THREE from "three";
 import { createFootstepSounds, createBombPlacementSound, createBombCountdownSounds, createBombExplosionSound, createPickupRevealSound, createPickupCollectionSound, createDeathSounds, createRespawnSound } from "./assets/sfx/sfx.js";
 import { createLevelBackground } from "./assets/source-model/level_background.js";
@@ -27,8 +28,7 @@ import {
   RoomEnvironment,
 } from "three/examples/jsm/environments/RoomEnvironment.js";
 
-import mapSourceUrl
-  from "./assets/source-model/bomber_map_source.glb?url";
+const mapSourceUrl = privateAssetUrl("source-model/bomber_map_source.glb");
 
 import {
   createBoardCamera,

@@ -1,11 +1,12 @@
+import { privateAssetUrl } from "../../../privateAssets.js";
 import * as THREE from "three";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
-import modelUrl from "./femaleRig.glb?url";
-import idleUrl from "./femaleStandingIdle.fbx?url";
-import runUrl from "./femaleSlowRun.fbx?url";
-import deathUrl from "./femaleStandingDeathLeft.fbx?url";
+const modelUrl = privateAssetUrl("character-bomber-assets/female/femaleRig.glb");
+const idleUrl = privateAssetUrl("character-bomber-assets/female/femaleStandingIdle.fbx");
+const runUrl = privateAssetUrl("character-bomber-assets/female/femaleSlowRun.fbx");
+const deathUrl = privateAssetUrl("character-bomber-assets/female/femaleStandingDeathLeft.fbx");
 import { upgradeFireRange } from "../../fires/fire_pickups.js";
 
 export function createFemaleBomber({ targetHeight = 0.5, onDeath = () => {}, onFall = () => {} } = {}) {

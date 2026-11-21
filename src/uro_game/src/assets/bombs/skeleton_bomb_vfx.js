@@ -1,3 +1,4 @@
+import { privateAssetUrl } from "../../privateAssets.js";
 import { Vector3, Vector4, AdditiveBlending } from "three";
 import { BatchedParticleRenderer, QuarksLoader, ConstantValue, IntervalValue, ConstantColor, Gradient } from "three.quarks";
 
@@ -8,7 +9,7 @@ export function createSkeletonBombVfx({ scene, collision, flowerTexture = null }
   scene.add(renderer);
   const instances = [];
   let template = null, disposed = false;
-  const ready = new QuarksLoader().loadAsync(`${import.meta.env.BASE_URL}vfx/skeleton-explosion/subEmitter2.json`)
+  const ready = new QuarksLoader().loadAsync(privateAssetUrl("vfx/skeleton-explosion/subEmitter2.json"))
     .then((object) => {
       // ObjectLoader.loadAsync can bypass QuarksLoader's synchronous linking.
       const nodes = new Map();

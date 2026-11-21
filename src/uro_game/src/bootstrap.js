@@ -3,6 +3,7 @@ import gddUrl from "../../assets/pdf/URO GDD.pdf?url";
 import { usernameToEmail } from "./auth/username.js";
 import { installButtonSounds, startIntroMusic } from "./assets/sfx/sfx.js";
 import { createSoundButton } from "./assets/HUD/sound_button.js";
+import { preparePrivateAssets } from './privateAssets.js';
 
 const loginSoundButton = createSoundButton();
 document.querySelector('#view-gdd').href = gddUrl;
@@ -114,9 +115,17 @@ function showLogin() {
 
 async function enter(user) {
   if (loaded || leaving) return;
+  if (!user.email?.toLowerCase().endsWith('@uro.com')) {
+    showLogin();
+    status.textContent = 'Please sign in to Start Game.';
+    startButton.disabled = false;
+    startButton.type = 'submit';
+    startButton.textContent = 'Start Game';
+    return;
+  }
   loaded = true;
   document.querySelector("#home-screen").dataset.startRequested = "true";
-  status.textContent = "Preparing the map and characters.";
+  status.textContent = '';
   startButton.textContent = "Loading Realm…";
   startButton.type = "button";
   startButton.disabled = true;
@@ -124,6 +133,9 @@ async function enter(user) {
   password.readOnly = true;
   remember.disabled = true;
   try {
+    await preparePrivateAssets(supabase, (done, total) => {
+      startButton.textContent = `Loading Realm… ${done}/${total}`;
+    });
     await import("./main.js");
     loginSoundButton.dispose();
     document.body.classList.remove("auth-pending");
@@ -148,8 +160,16 @@ async function enter(user) {
     });
     account.append(name, logout);
     document.body.append(account);
-  } catch {
-    status.textContent = "Could not load the game. Refresh to retry.";
+  } catch (error) {
+    loaded = false;
+    delete document.querySelector('#home-screen').dataset.startRequested;
+    status.textContent = error.message || 'Could not load the game. Refresh to retry.';
+    startButton.type = 'submit';
+    startButton.disabled = false;
+    startButton.textContent = 'Try Again';
+    form.elements.username.readOnly = false;
+    password.readOnly = false;
+    remember.disabled = false;
   }
 }
 
@@ -172,7 +192,7 @@ form.addEventListener("submit", async (event) => {
   submit.disabled = true;
   submit.textContent = "Loading Realm…";
   document.querySelector("#home-screen").dataset.startRequested = "true";
-  status.textContent = "Signing in…";
+  status.textContent = '';
   try {
     const email = usernameToEmail(form.elements.username.value);
     const { data, error } = await supabase.auth.signInWithPassword({ email, password: password.value });

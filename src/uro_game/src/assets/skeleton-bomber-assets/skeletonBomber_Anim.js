@@ -1,12 +1,13 @@
+import { privateAssetUrl } from "../../privateAssets.js";
 import * as THREE from "three";
 import { upgradeFireRange } from "../fires/fire_pickups.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { FBXLoader } from "three/examples/jsm/loaders/FBXLoader.js";
-import modelUrl from "./skeletonRig.glb?url";
-import idleUrl from "./skeletonStandingIdle.fbx?url";
-import walkUrl from "./skeletonSlowRun.fbx?url";
-import deathUrl from "./skeletonDeath.fbx?url";
+const modelUrl = privateAssetUrl("skeleton-bomber-assets/skeletonRig.glb");
+const idleUrl = privateAssetUrl("skeleton-bomber-assets/skeletonStandingIdle.fbx");
+const walkUrl = privateAssetUrl("skeleton-bomber-assets/skeletonSlowRun.fbx");
+const deathUrl = privateAssetUrl("skeleton-bomber-assets/skeletonDeath.fbx");
 
 // Keep GLB materials; animate its existing skeleton with the Mixamo idle.
 export function createBomber({ targetHeight = 0.09, modelSource = modelUrl, idleSource = idleUrl, walkSource = walkUrl, deathSource = deathUrl, name = "SkeletonBomber", onDeath = () => {}, onFall = () => {} } = {}) {

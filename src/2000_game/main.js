@@ -4,7 +4,6 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { setSceneBackground } from './background.js';
 import { createCamera, createCameraControls, frameObjectWithCamera, resizeCamera } from './camera.js';
 import { createGameController, createTetrominoDropController } from './gameController.js';
-import { createHomePage } from './homePage.js';
 import { addSceneLights } from './lights.js';
 import { createScoreDisplay } from './scoreDisplay.js';
 import { createSettingsOverlay } from './settingsOverlay.js';
@@ -51,8 +50,7 @@ status.className = 'status';
 status.textContent = 'Loading level.glb';
 document.body.appendChild(status);
 
-const homePage = createHomePage({
-  onStart() {
+export function startGame() {
     playPlaySound();
     setGameMusicPaused(false);
     gameControl?.setPaused(false);
@@ -60,19 +58,20 @@ const homePage = createHomePage({
     if (playMusicTimer !== null) window.clearTimeout(playMusicTimer);
     playMusicTimer = window.setTimeout(() => {
       playMusicTimer = null;
-      if (homePage.isOpen()) return;
+      if (gameControl?.isPaused()) return;
       startGameMusic();
     }, PLAY_MUSIC_LEAD_IN_MS);
-  },
-});
+}
 
 const settingsOverlay = createSettingsOverlay({
   onExitToHome() {
     settingsOverlay.close();
-    homePage.open();
     gameControl?.setPaused(true);
     setGameMusicPaused(true);
     gameController?.syncPauseButtonState?.();
+    if (playMusicTimer !== null) window.clearTimeout(playMusicTimer);
+    playMusicTimer = null;
+    window.dispatchEvent(new Event('hex-exit-to-home'));
   },
   onOpenChange(isOpen) {
     if (!gameControl) return;
@@ -127,7 +126,7 @@ export const levelReady = new Promise((resolve, reject) => loader.parse(
       setScore(score);
       setLines(lines);
     });
-    if (homePage.isOpen()) gameControl.setPaused(true);
+    gameControl.setPaused(true);
     setGameMusicPaused(gameControl.isPaused());
     gameController?.dispose();
     gameController = createGameController({

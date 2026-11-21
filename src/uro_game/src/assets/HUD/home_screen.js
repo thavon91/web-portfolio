@@ -106,7 +106,7 @@ export function createHomeScreen({ onStart }) {
     if (value && !autoStart) startIntroMusic();
     button.disabled = !value;
     button.textContent = value ? "Start Game" : "Loading Realm…";
-    status.textContent = value ? "The Realm is ready. Your adventure starts here." : "Preparing the map and characters.";
+    status.textContent = '';
     if (value && (autoStart || screen.dataset.startRequested === "true")) start();
   } };
 }

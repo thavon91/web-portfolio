@@ -1,3 +1,4 @@
+import { privateAssetUrl } from "../../privateAssets.js";
 import * as THREE from "three";
 import { DEFAULT_CRATERS, overlapsCrater } from "./crater_collisions.js";
 import { Octree } from "three/examples/jsm/math/Octree.js";
@@ -10,8 +11,7 @@ import {
     DRACOLoader,
 } from "three/examples/jsm/loaders/DRACOLoader.js";
 
-import collisionSourceUrl
-    from "./map_collision.glb?url";
+const collisionSourceUrl = privateAssetUrl("source-model/map_collision.glb");
 
 
 // ============================================================

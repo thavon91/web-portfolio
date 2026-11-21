@@ -1,16 +1,19 @@
-import menuMusicUrl from "./darren_hirst-gamer-music-140-bpm.mp3?url";
-import introMusicUrl from "./music-intro.mp3?url";
-import gameOverUrl from "./game-over.mp3?url";
-import gameOverMusicUrl from "./game-music-loop.mp3?url";
-import victorySoundUrl from "./goodresult.mp3?url";
-import victoryMusicUrl from "./victory-cool-hip-hop-loop.mp3?url";
+import { privateAssetUrl } from "../../privateAssets.js";
+import introMusicUrl from '../../public-audio/music-intro.mp3?url';
+import startClickUrl from '../../public-audio/epic_stock_media-ui-button-heavy-button-press-metallic.mp3?url';
+
+
+
+
+
+
 import { manageAudio, isAudioPaused, onAudioPauseChange, isGameAudioMuted, onGameAudioMuteChange } from "./audio_pause.js";
 export { setGameAudioPaused, setGameAudioMuted, isGameAudioMuted, onGameAudioMuteChange } from "./audio_pause.js";
 
 function createAudio(url) { return manageAudio(new Audio(url)); }
 
 export function createGameOverSound(onEnded) {
-  const sound = createAudio(gameOverUrl);
+  const sound = createAudio(privateAssetUrl("sfx/game-over.mp3"));
   sound.preload = "auto";
   sound.volume = 0.75;
   sound.load();
@@ -22,7 +25,7 @@ export function createGameOverSound(onEnded) {
 }
 
 export function createVictorySound() {
-  const sound = createAudio(victorySoundUrl);
+  const sound = createAudio(privateAssetUrl("sfx/goodresult.mp3"));
   sound.preload = "auto";
   sound.volume = 0.4;
   sound.load();
@@ -31,22 +34,22 @@ export function createVictorySound() {
     sound.play().catch(() => {});
   };
 }
-import startClickUrl from "./epic_stock_media-ui-button-heavy-button-press-metallic.mp3?url";
-import footstepUrl from "./running-on-concrete.mp3?url";
-import characterFootstepUrl from "./character-running-on-the-floor.mp3?url";
-import putItemUrl from "./put_item.mp3?url";
-import countdownUrl from "./bomb-countdown-beeps.mp3?url";
-import skeletonCountdownUrl from "./skeletons-bomb-timer-beeping.mp3?url";
-import explosionUrl from "./bomb-explosion-close.mp3?url";
-import skeletonExplosionUrl from "./skeletons_bomb-explosion-large.mp3?url";
-import pickupRevealUrl from "./bombs-and-fires-pop-amp-swish.mp3?url";
-import bombCollectUrl from "./achievement-bombs.mp3?url";
-import fireCollectUrl from "./achievement-fires.mp3?url";
-import characterDieUrl from "./character-die.mp3?url";
-import characterFallUrl from "./character-fall.mp3?url";
-import skeletonDieUrl from "./skeletons-dying.mp3?url";
-import skeletonSnapUrl from "./skeletons-bone-snap.mp3?url";
-import respawnUrl from "./character-game-respawn.mp3?url";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export function createRespawnSound() {
   const context = new AudioContext({ latencyHint: "interactive" });
@@ -72,7 +75,7 @@ export function createRespawnSound() {
     else unlock();
   });
   // Decode before a respawn and skip leading silence in the source clip.
-  fetch(respawnUrl).then((response) => {
+  fetch(privateAssetUrl("sfx/character-game-respawn.mp3")).then((response) => {
     if (!response.ok) throw new Error(`Respawn sound: ${response.status}`);
     return response.arrayBuffer();
   }).then((data) => context.decodeAudioData(data)).then((decoded) => {
@@ -113,14 +116,14 @@ export function createDeathSounds(skeleton = false) {
     return () => { sound.currentTime = 0; sound.play().catch(() => {}); };
   };
   return {
-    onDeath: makeSound(skeleton ? skeletonDieUrl : characterDieUrl, skeleton ? 0.75 : 0.4),
-    onFall: makeSound(skeleton ? skeletonSnapUrl : characterFallUrl),
+    onDeath: makeSound(skeleton ? privateAssetUrl("sfx/skeletons-dying.mp3") : privateAssetUrl("sfx/character-die.mp3"), skeleton ? 0.75 : 0.4),
+    onFall: makeSound(skeleton ? privateAssetUrl("sfx/skeletons-bone-snap.mp3") : privateAssetUrl("sfx/character-fall.mp3")),
   };
 }
 
 export function createPickupCollectionSound(type) {
   const sounds = Array.from({ length: 5 }, () => {
-    const sound = createAudio(type === "fire" ? fireCollectUrl : bombCollectUrl);
+    const sound = createAudio(type === "fire" ? privateAssetUrl("sfx/achievement-fires.mp3") : privateAssetUrl("sfx/achievement-bombs.mp3"));
     sound.preload = "auto";
     sound.volume = 0.35;
     return sound;
@@ -135,7 +138,7 @@ export function createPickupCollectionSound(type) {
 
 export function createPickupRevealSound() {
   const sounds = Array.from({ length: 6 }, () => {
-    const sound = createAudio(pickupRevealUrl);
+    const sound = createAudio(privateAssetUrl("sfx/bombs-and-fires-pop-amp-swish.mp3"));
     sound.preload = "auto";
     sound.volume = 0.35;
     return sound;
@@ -150,7 +153,7 @@ export function createPickupRevealSound() {
 
 export function createBombExplosionSound(skeleton = false) {
   const sounds = Array.from({ length: 6 }, () => {
-    const sound = createAudio(skeleton ? skeletonExplosionUrl : explosionUrl);
+    const sound = createAudio(skeleton ? privateAssetUrl("sfx/skeletons_bomb-explosion-large.mp3") : privateAssetUrl("sfx/bomb-explosion-close.mp3"));
     sound.preload = "auto";
     sound.volume = 0.8;
     return sound;
@@ -173,7 +176,7 @@ export function createBombCountdownSounds() {
   document.addEventListener("visibilitychange", () => sounds.forEach(sync));
   return {
     start(skeleton = false) {
-      const sound = createAudio(skeleton ? skeletonCountdownUrl : countdownUrl);
+      const sound = createAudio(skeleton ? privateAssetUrl("sfx/skeletons-bomb-timer-beeping.mp3") : privateAssetUrl("sfx/bomb-countdown-beeps.mp3"));
       sound.volume = skeleton ? 0.2 : 0.4;
       sound.loop = true;
       sounds.add(sound);
@@ -194,7 +197,7 @@ export function createBombCountdownSounds() {
 
 export function createBombPlacementSound() {
   const sounds = Array.from({ length: 5 }, () => {
-    const sound = createAudio(putItemUrl);
+    const sound = createAudio(privateAssetUrl("sfx/put_item.mp3"));
     sound.preload = "auto";
     sound.volume = 0.7;
     return sound;
@@ -208,7 +211,7 @@ export function createBombPlacementSound() {
 }
 
 export function createFootstepSounds(character = false) {
-  const sound = createAudio(character ? characterFootstepUrl : footstepUrl);
+  const sound = createAudio(character ? privateAssetUrl("sfx/character-running-on-the-floor.mp3") : privateAssetUrl("sfx/running-on-concrete.mp3"));
   sound.preload = "auto";
   sound.volume = 0.4;
   sound.loop = true;
@@ -232,12 +235,15 @@ export function createFootstepSounds(character = false) {
 }
 
 export function createStartClickSound() {
-  // UI feedback must finish even when the click pauses or leaves the game.
-  const sound = new Audio(startClickUrl);
-  sound.preload = "auto";
-  sound.volume = 0.7;
-  sound.load();
+  let sound;
   return () => {
+    // UI feedback must finish even when the click pauses or leaves the game.
+    if (!sound) {
+      sound = new Audio(startClickUrl);
+      sound.preload = "auto";
+      sound.volume = 0.7;
+      sound.load();
+    }
     sound.currentTime = 0;
     sound.play().catch(() => {});
   };
@@ -344,7 +350,7 @@ export function createMenuMusic({ home = false, gameOver = false, victory = fals
   window.addEventListener("pointerdown", play);
   window.addEventListener("keydown", play);
   document.addEventListener("visibilitychange", onVisibilityChange);
-  fetch(victory ? victoryMusicUrl : gameOver ? gameOverMusicUrl : home ? introMusicUrl : menuMusicUrl, { signal: download.signal })
+  fetch(victory ? privateAssetUrl("sfx/victory-cool-hip-hop-loop.mp3") : gameOver ? privateAssetUrl("sfx/game-music-loop.mp3") : home ? introMusicUrl : privateAssetUrl("sfx/darren_hirst-gamer-music-140-bpm.mp3"), { signal: download.signal })
     .then((response) => {
       if (!response.ok) throw new Error(`Menu music: ${response.status}`);
       return response.arrayBuffer();

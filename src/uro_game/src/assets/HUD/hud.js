@@ -1,4 +1,5 @@
-import hudArtUrl from "./Mossy_Stone_HUD_female_reference.png?url";
+import { privateAssetUrl } from "../../privateAssets.js";
+const hudArtUrl = privateAssetUrl("HUD/Mossy_Stone_HUD_female_reference.png");
 
 const ART_WIDTH = 1920;
 const ART_HEIGHT = 819;
