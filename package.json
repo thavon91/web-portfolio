@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "postinstall": "npm --prefix src/uro_game ci --ignore-scripts",
+    "predev": "npm run build:uro",
     "dev": "vite",
     "build": "npm run build:uro && vite build",
     "lint": "eslint .",

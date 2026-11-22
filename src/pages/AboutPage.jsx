@@ -78,7 +78,7 @@ export default function AboutPage() {
   return (
     <main className="about-screen page-switch">
       <section className="about-copy reveal-on-scroll">
-        <div className="eyebrow"><span>GET TO KNOW ME</span></div>
+        <div className="eyebrow"><span>GET TO KNOW</span></div>
         <h1 className="mega-title"><span>ABOUT</span> <em>ME</em></h1>
         <div className="title-trails"><i /><i /><i /></div>
         <p className="about-intro">I’m am creating interactive experiences, learning new technologies, and turning ideas into interactions. I am a passionate techie who enjoys teamwork and thrives in dynamic environments. I love the creative technology involved in game design, including development, and live.</p>

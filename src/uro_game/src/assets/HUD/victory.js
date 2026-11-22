@@ -22,7 +22,7 @@ function showResultScreen({ won, timeLabel, onReplay }) {
   overlay.setAttribute("aria-labelledby", `${id}-title`);
   const card = document.createElement("div"); card.className = `victory-card${won ? "" : " defeat-card"}`;
   const title = document.createElement("h1"); title.id = `${id}-title`; title.textContent = won ? "VICTORY!" : "GAME OVER";
-  const description = document.createElement("p"); description.textContent = won ? "All four skeletons defeated." : "Out of lives. Ready for another round?";
+  const description = document.createElement("p"); description.textContent = won ? "All skeletons defeated." : "Out of lives. Ready for another round?";
   const time = document.createElement("p"); time.className = "victory-time"; time.textContent = timeLabel;
   const replay = document.createElement("button"); replay.type = "button"; replay.textContent = "Replay";
   replay.addEventListener("click", () => {
