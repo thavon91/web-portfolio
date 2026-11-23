@@ -41,17 +41,6 @@ startRow.append(exitLink, startButton, loginSoundButton);
 overlay.querySelector("form").append(startRow);
 startButton.textContent = "Start Game";
 document.querySelector("#home-status").textContent = "Sign in to Start the Realm.";
-// Show the same cached portrait before the authenticated game loads.
-try {
-  const portrait = localStorage.getItem("bombom-home-smile-portrait-v2");
-  if (portrait?.startsWith("data:image/png;base64,")) {
-    const image = document.createElement("img");
-    image.src = portrait;
-    image.alt = "Smiling blue bomb";
-    image.width = image.height = 140;
-    document.querySelector(".home-bomb").replaceChildren(image);
-  }
-} catch { /* The portrait also loads from the model after login. */ }
 const form = overlay.querySelector("form");
 const submit = startButton;
 const status = overlay.querySelector("#auth-status");

@@ -1,17 +1,9 @@
 import bombPortrait from '../assets/uro-bomb.png';
-import { useState } from 'react';
 
 export default function UroCover() {
-  const [portrait] = useState(() => {
-    try {
-      const cached = localStorage.getItem('bombom-home-smile-portrait-v2');
-      if (cached?.startsWith('data:image/png;base64,')) return cached;
-    } catch { /* Use the public portrait if browser storage is unavailable. */ }
-    return bombPortrait;
-  });
   return <svg className="home-project-image" role="img" aria-label="URO blue bomb and game title" viewBox="0 0 720 400">
     <rect width="720" height="400" fill="#242c24" />
-    <image href={portrait} x="28" y="8" width="280" height="280" />
+    <image href={bombPortrait} x="28" y="8" width="280" height="280" />
     <text x="336" y="206" fontFamily="Arial,sans-serif" fontSize="98" fontWeight="900" letterSpacing="-5">
       <tspan style={{ fill: '#ffe1a4' }}>U</tspan><tspan style={{ fill: '#819b46' }}>R</tspan><tspan style={{ fill: '#e88126' }}>O</tspan>
     </text>
