@@ -208,6 +208,18 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;op
   margin-right: auto !important;
 }
 
+.menu .about-screen .eyebrow > span {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .menu .about-screen .eyebrow {
+    gap: 12px;
+    letter-spacing: clamp(3px, 1vw, 5px);
+  }
+}
+
 .menu .home-quote-segment {
   display: block;
 }
