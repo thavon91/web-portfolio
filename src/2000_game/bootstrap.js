@@ -23,8 +23,8 @@ screen.innerHTML = `
     </form>
     <p class="login-status">Sign in with an approved game account to play.</p>
     <div class="home-actions">
-      <a class="home-portfolio">Back to portfolio</a>
       <span class="home-hint">Keyboard (Space and arrow keys), mouse, and touch ready</span>
+      <a class="home-portfolio">Back to portfolio</a>
     </div>
   </div></section></main>`;
 screen.querySelector('.home-portfolio').href = new URL('../../#home', window.location.href).href;
