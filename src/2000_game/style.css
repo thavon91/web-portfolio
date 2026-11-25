@@ -124,24 +124,6 @@ button {
   box-shadow: 0 4px 0 rgba(26, 38, 35, 0.42);
 }
 
-.home-gdd {
-  display: inline-flex;
-  min-height: 52px;
-  align-items: center;
-  padding: 0 18px;
-  border: 2px solid rgba(255, 248, 220, 0.55);
-  border-radius: 6px;
-  color: #fff6df;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.home-gdd:hover,
-.home-gdd:focus-visible {
-  background: rgba(255, 248, 220, 0.14);
-}
-
 .home-portfolio {
   display: inline-flex;
   min-height: 52px;

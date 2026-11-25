@@ -1,12 +1,10 @@
 import { configured, supabase } from "./auth/supabase.js";
-import gddUrl from "../../assets/pdf/URO GDD.pdf?url";
 import { usernameToEmail } from "./auth/username.js";
 import { installButtonSounds, startIntroMusic } from "./assets/sfx/sfx.js";
 import { createSoundButton } from "./assets/HUD/sound_button.js";
 import { preparePrivateAssets } from './privateAssets.js';
 
 const loginSoundButton = createSoundButton();
-document.querySelector('#view-gdd').href = gddUrl;
 installButtonSounds();
 loginSoundButton.id = "login-sound-button";
 

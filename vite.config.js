@@ -3,6 +3,7 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { preservePdf } from './build/preserve-pdf.js'
 
 /* global process */
 
@@ -33,7 +34,7 @@ export default defineConfig(({ mode }) => {
   define: Object.fromEntries(['VITE_SUPABASE_URL', 'VITE_SUPABASE_PUBLISHABLE_KEY'].map((key) => [
     `import.meta.env.${key}`, JSON.stringify(process.env[key] || rootEnv[key] || gameEnv[key] || ''),
   ])),
-  plugins: [react(), {
+  plugins: [react(), preservePdf(resolve(projectRoot, 'src/2000_game/GDD/2000 GDD.pdf'), 'assets/2000 GDD-DYBJECpF.pdf'), {
     name: 'uro-directory-route',
     configureServer: serveUroDirectory,
     configurePreviewServer: serveUroDirectory,
